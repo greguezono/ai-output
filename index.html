@@ -19,7 +19,12 @@
   h2 { font-size: 28px; }
   .kicker { color: var(--ai); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; }
   .lede { color: var(--muted); max-width: 680px; }
-  .hero { min-height: min(92vh, 820px); display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; }
+  .top { padding-top: 48px; opacity: 1; transform: none; }
+  .top h1 { font-size: clamp(30px, 4vw, 44px); }
+  .hero { padding-top: 48px; }
+  .hero .big { font-size: clamp(96px, 16vw, 180px); }
+  .count { font-size: 10px; font-weight: 600; opacity: 0; transition: opacity .5s ease; }
+  section.seen .count { opacity: 1; }
   .big { font-size: clamp(120px, 22vw, 260px); font-weight: 800; line-height: .9; letter-spacing: -0.05em;
          background: linear-gradient(120deg, var(--ai), var(--ai2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .big small { font-size: .35em; letter-spacing: 0; }
@@ -61,25 +66,26 @@
 </head>
 <body>
 <main>
-  <section class="hero" id="hero">
+  <section class="top" id="timeline">
     <div class="kicker">GitHub output · greguezono · Nov 2023 → Nov 2026</div>
-    <div class="big"><span id="heroNum">1.0</span><small>×</small></div>
-    <h1>more pull requests per month since AI arrived.</h1>
-    <p class="lede" id="heroLede"></p>
-    <div class="stats" id="heroStats"></div>
-  </section>
-
-  <section id="timeline">
-    <div class="kicker">01 · The timeline</div>
-    <h2>Every month, every PR</h2>
-    <p class="lede">Bar height is PRs opened. Color shows how big the typical PR was that month: grey is small, hot amber is huge. Hover a bar for details.</p>
+    <h1>Every month, every PR</h1>
+    <p class="lede">Number above each bar is PRs opened that month. Color shows how big the typical PR was: grey is pre-AI, hot amber is huge. Hover a bar for details.</p>
     <div class="card"><svg id="barChart" viewBox="0 0 1000 380"></svg>
       <div class="legend">
         <span><i class="sw" style="background:var(--pre)"></i>Pre-AI</span>
         <span><i class="sw" style="background:linear-gradient(90deg,#7a5a2a,var(--ai),var(--ai2))"></i>Post-AI, colored by median lines added</span>
         <span>┆ dashed line: first Claude-attributed commit</span>
+        <span id="baseLegend"></span>
       </div>
     </div>
+  </section>
+
+  <section class="hero" id="hero">
+    <div class="kicker">01 · The headline</div>
+    <div class="big"><span id="heroNum">1.0</span><small>×</small></div>
+    <h2>more pull requests per month since AI arrived.</h2>
+    <p class="lede" id="heroLede"></p>
+    <div class="stats" id="heroStats"></div>
   </section>
 
   <section id="gap">
@@ -210,6 +216,9 @@ function renderHero() {
   ];
   document.getElementById("heroStats").innerHTML =
     stats.map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("");
+}
+
+function countUpHero() {
   const target = X.prsPerMonth, node = document.getElementById("heroNum"), t0 = performance.now();
   if (location.search.includes("static")) return void (node.textContent = target.toFixed(1));
   (function tick(now) {
@@ -221,7 +230,7 @@ function renderHero() {
 
 function renderBars() {
   const svg = document.getElementById("barChart"), f = frame(svg);
-  const max = Math.ceil(Math.max(...M.map(d => d.prs)) / 20) * 20;
+  const max = Math.ceil((Math.max(...M.map(d => d.prs)) + 8) / 20) * 20;
   const slot = f.iw / M.length, bw = slot * 0.72;
   const xOf = i => f.left + i * slot + slot / 2;
   const aiIndex = M.findIndex(d => isAi(d.month));
@@ -243,10 +252,14 @@ function renderBars() {
     }, svg);
     r.addEventListener("mousemove", e => showTip(e, monthTip(d)));
     r.addEventListener("mouseleave", hideTip);
+    el("text", {
+      class: "count", x: xOf(i), y: f.top + f.ih - h - 5, "text-anchor": "middle",
+      fill: isAi(d.month) ? "var(--text)" : "var(--muted)", style: `transition-delay:${400 + i * 25}ms`,
+    }, svg).textContent = d.prs;
   });
   const baseY = f.top + f.ih - (BASE / max) * f.ih;
   el("line", { x1: f.left, x2: f.w - f.right, y1: baseY, y2: baseY, stroke: "var(--muted)", "stroke-width": 1, "stroke-dasharray": "6 4" }, svg);
-  el("text", { x: f.left + 6, y: baseY - 6 }, svg).textContent = `pre-AI baseline · ${BASE}/mo`;
+  el("text", { x: f.left - 8, y: baseY + 4, "text-anchor": "end", fill: "var(--text)" }, svg).textContent = BASE;
   const ax = f.left + aiIndex * slot;
   el("line", { x1: ax, x2: ax, y1: f.top - 8, y2: f.top + f.ih, stroke: "var(--ai)", "stroke-dasharray": "4 4", "stroke-width": 1.5 }, svg);
   const lbl = el("text", { x: ax - 6, y: f.top - 12, "text-anchor": "end", fill: "var(--ai)" }, svg);
@@ -376,6 +389,7 @@ function renderCaveats() {
     `Source: GitHub GraphQL search, author:greguezono type:pr, ${DATA.totalPrs} PRs. AI start = first commit with a "Co-Authored-By: Claude" trailer.`;
 }
 
+document.getElementById("baseLegend").textContent = `- - - pre-AI baseline: ${BASE} PRs/mo`;
 renderHero(); renderBars(); renderGap(); renderRate(); renderPhases(); renderReach(); renderCaveats();
 
 if (location.search.includes("static")) {
@@ -383,7 +397,12 @@ if (location.search.includes("static")) {
   document.querySelectorAll("*").forEach(n => (n.style.transition = "none"));
   document.querySelectorAll("section").forEach(s => s.classList.add("seen"));
 }
-const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add("seen")), { threshold: 0.15 });
+if (location.search.includes("static")) countUpHero();
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting || e.target.classList.contains("seen")) return;
+  e.target.classList.add("seen");
+  if (e.target.id === "hero") countUpHero();
+}), { threshold: 0.15 });
 document.querySelectorAll("section").forEach(s => io.observe(s));
 </script>
 </body>
