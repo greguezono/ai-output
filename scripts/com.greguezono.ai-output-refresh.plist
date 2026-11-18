@@ -24,7 +24,14 @@
 	<string>/Users/guezono/Library/Logs/ai-output-refresh.log</string>
 	<key>StandardOutPath</key>
 	<string>/Users/guezono/Library/Logs/ai-output-refresh.log</string>
-	<key>StartInterval</key>
-	<integer>3600</integer>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Day</key>
+		<integer>1</integer>
+		<key>Hour</key>
+		<integer>9</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
 </dict>
 </plist>
