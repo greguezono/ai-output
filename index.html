@@ -67,7 +67,7 @@
 <body>
 <main>
   <section class="top" id="timeline">
-    <div class="kicker">GitHub output · greguezono · Nov 2023 → Nov 2026</div>
+    <div class="kicker">GitHub output · greguezono · Nov 2023 – Present</div>
     <h1>Every month, every PR</h1>
     <p class="lede">Number above each bar is PRs opened that month. Color shows how big the typical PR was: grey is pre-AI, hot amber is huge. Hover a bar for details.</p>
     <div class="card"><svg id="barChart" viewBox="0 0 1000 380"></svg>
@@ -242,7 +242,7 @@ function renderBars() {
   const idx = m => M.findIndex(d => d.month === m);
   band(idx(P.bigger.from), idx(P.bigger.to), "Bigger PRs", "rgba(255,179,71,.05)");
   band(idx(P.more.from), idx(P.more.to), "More PRs", "rgba(255,107,61,.07)");
-  yAxis(svg, f, max, [0, 20, 40, 60, 80, 100].filter(v => v <= max));
+  yAxis(svg, f, max, [0, 20, 40, 60, 80, 100].filter(v => v <= max && Math.abs(v - BASE) >= 6));
   M.forEach((d, i) => {
     const h = (d.prs / max) * f.ih;
     const r = el("rect", {
