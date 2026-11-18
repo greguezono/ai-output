@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Inflection — GitHub output before and after AI</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0b0e14; --panel: #121722; --line: #232a38; --text: #e6e9ef; --muted: #8b93a7;
+    --pre: #5b6478; --ai: #ffb347; --ai2: #ff6b3d; --good: #5fd3a3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 ui-sans-serif, -apple-system, "Inter", system-ui, sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 0 24px 120px; }
+  section { padding: 72px 0 24px; opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  section.seen { opacity: 1; transform: none; }
+  h1, h2 { letter-spacing: -0.02em; margin: 0 0 8px; }
+  h2 { font-size: 28px; }
+  .kicker { color: var(--ai); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; }
+  .lede { color: var(--muted); max-width: 680px; }
+  .hero { min-height: min(92vh, 820px); display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; }
+  .big { font-size: clamp(120px, 22vw, 260px); font-weight: 800; line-height: .9; letter-spacing: -0.05em;
+         background: linear-gradient(120deg, var(--ai), var(--ai2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .big small { font-size: .35em; letter-spacing: 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 36px; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .stat b { display: block; font-size: 30px; color: var(--ai); }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-top: 20px; position: relative; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  svg text:not([fill]) { fill: var(--muted); }
+  svg text { font-size: 11px; font-family: inherit; }
+  .axis line, .axis path { stroke: var(--line); }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+  #tip { position: fixed; pointer-events: none; background: #1b2232; border: 1px solid #333c50; border-radius: 10px; padding: 10px 12px;
+         font-size: 13px; line-height: 1.5; opacity: 0; transition: opacity .12s; z-index: 10; min-width: 180px; }
+  #tip b { color: var(--text); }
+  #tip .m { color: var(--muted); }
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+  @media (max-width: 820px) { .phases { grid-template-columns: 1fr; } }
+  .phase { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .phase h3 { margin: 0; font-size: 18px; }
+  .phase .when { color: var(--muted); font-size: 13px; }
+  .phase .num { font-size: 40px; font-weight: 800; margin-top: 8px; }
+  .phase .num small { font-size: 14px; color: var(--muted); font-weight: 500; }
+  .grid { display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start; align-items: flex-end; min-height: 230px; margin-top: 14px; }
+  .grid i { display: block; border-radius: 3px; transform: scale(0); transition: transform .35s cubic-bezier(.3,1.6,.5,1); }
+  section.seen .grid i { transform: scale(1); }
+  .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
+  .caveats { border-left: 3px solid var(--ai); padding: 4px 0 4px 18px; color: var(--muted); }
+  .caveats li { margin: 6px 0; }
+  .caveats b { color: var(--text); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 60px; }
+  .draw { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); transition: stroke-dashoffset 2.2s ease; }
+  section.seen .draw { stroke-dashoffset: 0; }
+  .grow { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); transition: transform .7s ease; }
+  section.seen .grow { transform: scaleY(1); }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero" id="hero">
+    <div class="kicker">GitHub output · greguezono · Nov 2023 → Nov 2026</div>
+    <div class="big"><span id="heroNum">1.0</span><small>×</small></div>
+    <h1>more pull requests per month since AI arrived.</h1>
+    <p class="lede" id="heroLede"></p>
+    <div class="stats" id="heroStats"></div>
+  </section>
+
+  <section id="timeline">
+    <div class="kicker">01 · The timeline</div>
+    <h2>Every month, every PR</h2>
+    <p class="lede">Bar height is PRs opened. Color shows how big the typical PR was that month: grey is small, hot amber is huge. Hover a bar for details.</p>
+    <div class="card"><svg id="barChart" viewBox="0 0 1000 380"></svg>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--pre)"></i>Pre-AI</span>
+        <span><i class="sw" style="background:linear-gradient(90deg,#7a5a2a,var(--ai),var(--ai2))"></i>Post-AI, colored by median lines added</span>
+        <span>┆ dashed line: first Claude-attributed commit</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="gap">
+    <div class="kicker">02 · The gap</div>
+    <h2>PRs that wouldn't exist at the old pace</h2>
+    <p class="lede" id="gapLede"></p>
+    <div class="card"><svg id="gapChart" viewBox="0 0 1000 360"></svg>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--pre)"></i>Pre-AI pace, projected</span>
+        <span><i class="sw" style="background:var(--ai)"></i>Actual, cumulative</span>
+        <span><i class="sw" style="background:rgba(255,179,71,.25)"></i>Extra PRs</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="rate">
+    <div class="kicker">03 · The rate of gain</div>
+    <h2>The multiplier is still climbing</h2>
+    <p class="lede">Rolling 3-month PRs per month, divided by the pre-AI baseline. 1× is the old normal.</p>
+    <div class="card"><svg id="rateChart" viewBox="0 0 1000 320"></svg></div>
+  </section>
+
+  <section id="phases">
+    <div class="kicker">04 · Two phases</div>
+    <h2>First the PRs got bigger. Then there were more of them.</h2>
+    <p class="lede">One square = one PR in an average month. Square area scales with the median lines added.</p>
+    <div class="phases" id="phaseCards"></div>
+  </section>
+
+  <section id="reach">
+    <div class="kicker">05 · Reach</div>
+    <h2>More repos, slightly lower merge rate</h2>
+    <p class="lede">Distinct repos you opened PRs in, per quarter. The green line is merge rate.</p>
+    <div class="card"><svg id="reachChart" viewBox="0 0 1000 300"></svg>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--pre)"></i>Repos touched, pre-AI</span>
+        <span><i class="sw" style="background:var(--ai)"></i>Repos touched, post-AI</span>
+        <span><i class="sw" style="background:var(--good)"></i>Merge rate</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="caveats">
+    <div class="kicker">06 · Read this before quoting the numbers</div>
+    <h2>Caveats</h2>
+    <ul class="caveats" id="caveatList"></ul>
+    <footer id="foot"></footer>
+  </section>
+</main>
+<div id="tip"></div>
+
+<script>
+const DATA = {"firstAiDate": "2025-12-05", "totalPrs": 887, "monthly": [{"month": "2023-11", "partial": false, "prs": 8, "prsPerMonth": 8.0, "mergedPerMonth": 8.0, "mergeRate": 100, "medianAdditions": 26.0, "medianFiles": 4.0, "churnPerMonth": 2658, "repos": 5, "aiMentioned": 0}, {"month": "2023-12", "partial": false, "prs": 15, "prsPerMonth": 15.0, "mergedPerMonth": 12.0, "mergeRate": 80, "medianAdditions": 22, "medianFiles": 3, "churnPerMonth": 9458, "repos": 9, "aiMentioned": 0}, {"month": "2024-01", "partial": false, "prs": 18, "prsPerMonth": 18.0, "mergedPerMonth": 15.0, "mergeRate": 83, "medianAdditions": 25.0, "medianFiles": 4.0, "churnPerMonth": 1840, "repos": 10, "aiMentioned": 0}, {"month": "2024-02", "partial": false, "prs": 25, "prsPerMonth": 25.0, "mergedPerMonth": 23.0, "mergeRate": 92, "medianAdditions": 23, "medianFiles": 5, "churnPerMonth": 2080, "repos": 5, "aiMentioned": 0}, {"month": "2024-03", "partial": false, "prs": 13, "prsPerMonth": 13.0, "mergedPerMonth": 13.0, "mergeRate": 100, "medianAdditions": 45, "medianFiles": 3, "churnPerMonth": 2247, "repos": 7, "aiMentioned": 0}, {"month": "2024-04", "partial": false, "prs": 10, "prsPerMonth": 10.0, "mergedPerMonth": 9.0, "mergeRate": 90, "medianAdditions": 23.0, "medianFiles": 1.5, "churnPerMonth": 1126, "repos": 6, "aiMentioned": 0}, {"month": "2024-05", "partial": false, "prs": 10, "prsPerMonth": 10.0, "mergedPerMonth": 9.0, "mergeRate": 90, "medianAdditions": 75.5, "medianFiles": 9.0, "churnPerMonth": 2869, "repos": 8, "aiMentioned": 0}, {"month": "2024-06", "partial": false, "prs": 8, "prsPerMonth": 8.0, "mergedPerMonth": 7.0, "mergeRate": 88, "medianAdditions": 141.5, "medianFiles": 5.5, "churnPerMonth": 1569, "repos": 4, "aiMentioned": 0}, {"month": "2024-07", "partial": false, "prs": 13, "prsPerMonth": 13.0, "mergedPerMonth": 12.0, "mergeRate": 92, "medianAdditions": 40, "medianFiles": 2, "churnPerMonth": 2455, "repos": 3, "aiMentioned": 0}, {"month": "2024-08", "partial": false, "prs": 12, "prsPerMonth": 12.0, "mergedPerMonth": 12.0, "mergeRate": 100, "medianAdditions": 27.5, "medianFiles": 2.0, "churnPerMonth": 837, "repos": 5, "aiMentioned": 0}, {"month": "2024-09", "partial": false, "prs": 20, "prsPerMonth": 20.0, "mergedPerMonth": 20.0, "mergeRate": 100, "medianAdditions": 44.0, "medianFiles": 3.0, "churnPerMonth": 5722, "repos": 6, "aiMentioned": 0}, {"month": "2024-10", "partial": false, "prs": 29, "prsPerMonth": 29.0, "mergedPerMonth": 26.0, "mergeRate": 90, "medianAdditions": 16, "medianFiles": 2, "churnPerMonth": 14626, "repos": 8, "aiMentioned": 0}, {"month": "2024-11", "partial": false, "prs": 22, "prsPerMonth": 22.0, "mergedPerMonth": 22.0, "mergeRate": 100, "medianAdditions": 23.5, "medianFiles": 3.0, "churnPerMonth": 2918, "repos": 7, "aiMentioned": 0}, {"month": "2024-12", "partial": false, "prs": 8, "prsPerMonth": 8.0, "mergedPerMonth": 8.0, "mergeRate": 100, "medianAdditions": 33.0, "medianFiles": 2.5, "churnPerMonth": 1496, "repos": 2, "aiMentioned": 0}, {"month": "2025-01", "partial": false, "prs": 12, "prsPerMonth": 12.0, "mergedPerMonth": 11.0, "mergeRate": 92, "medianAdditions": 4.5, "medianFiles": 2.0, "churnPerMonth": 722, "repos": 10, "aiMentioned": 0}, {"month": "2025-02", "partial": false, "prs": 6, "prsPerMonth": 6.0, "mergedPerMonth": 6.0, "mergeRate": 100, "medianAdditions": 28.0, "medianFiles": 3.0, "churnPerMonth": 533, "repos": 2, "aiMentioned": 0}, {"month": "2025-03", "partial": false, "prs": 12, "prsPerMonth": 12.0, "mergedPerMonth": 9.0, "mergeRate": 75, "medianAdditions": 149.5, "medianFiles": 7.0, "churnPerMonth": 4381, "repos": 3, "aiMentioned": 0}, {"month": "2025-04", "partial": false, "prs": 20, "prsPerMonth": 20.0, "mergedPerMonth": 19.0, "mergeRate": 95, "medianAdditions": 7.0, "medianFiles": 2.0, "churnPerMonth": 1087, "repos": 4, "aiMentioned": 0}, {"month": "2025-05", "partial": false, "prs": 26, "prsPerMonth": 26.0, "mergedPerMonth": 25.0, "mergeRate": 96, "medianAdditions": 24.5, "medianFiles": 2.5, "churnPerMonth": 11409, "repos": 10, "aiMentioned": 0}, {"month": "2025-06", "partial": false, "prs": 20, "prsPerMonth": 20.0, "mergedPerMonth": 20.0, "mergeRate": 100, "medianAdditions": 35.5, "medianFiles": 2.0, "churnPerMonth": 2526, "repos": 8, "aiMentioned": 0}, {"month": "2025-07", "partial": false, "prs": 30, "prsPerMonth": 30.0, "mergedPerMonth": 26.0, "mergeRate": 87, "medianAdditions": 22.5, "medianFiles": 1.5, "churnPerMonth": 3056, "repos": 7, "aiMentioned": 0}, {"month": "2025-08", "partial": false, "prs": 28, "prsPerMonth": 28.0, "mergedPerMonth": 25.0, "mergeRate": 89, "medianAdditions": 72.0, "medianFiles": 2.0, "churnPerMonth": 4896, "repos": 6, "aiMentioned": 0}, {"month": "2025-09", "partial": false, "prs": 15, "prsPerMonth": 15.0, "mergedPerMonth": 15.0, "mergeRate": 100, "medianAdditions": 81, "medianFiles": 5, "churnPerMonth": 2577, "repos": 5, "aiMentioned": 0}, {"month": "2025-10", "partial": false, "prs": 18, "prsPerMonth": 18.0, "mergedPerMonth": 17.0, "mergeRate": 94, "medianAdditions": 25.0, "medianFiles": 2.0, "churnPerMonth": 3916, "repos": 9, "aiMentioned": 0}, {"month": "2025-11", "partial": false, "prs": 12, "prsPerMonth": 12.0, "mergedPerMonth": 11.0, "mergeRate": 92, "medianAdditions": 14.5, "medianFiles": 3.5, "churnPerMonth": 1508, "repos": 7, "aiMentioned": 0}, {"month": "2025-12", "partial": false, "prs": 41, "prsPerMonth": 41.0, "mergedPerMonth": 38.0, "mergeRate": 93, "medianAdditions": 421, "medianFiles": 13, "churnPerMonth": 63753, "repos": 7, "aiMentioned": 14}, {"month": "2026-01", "partial": false, "prs": 16, "prsPerMonth": 16.0, "mergedPerMonth": 14.0, "mergeRate": 88, "medianAdditions": 213.5, "medianFiles": 12.0, "churnPerMonth": 77150, "repos": 4, "aiMentioned": 9}, {"month": "2026-02", "partial": false, "prs": 6, "prsPerMonth": 6.0, "mergedPerMonth": 6.0, "mergeRate": 100, "medianAdditions": 113.5, "medianFiles": 4.0, "churnPerMonth": 1746, "repos": 4, "aiMentioned": 0}, {"month": "2026-03", "partial": false, "prs": 9, "prsPerMonth": 9.0, "mergedPerMonth": 8.0, "mergeRate": 89, "medianAdditions": 119, "medianFiles": 4, "churnPerMonth": 1936, "repos": 5, "aiMentioned": 0}, {"month": "2026-04", "partial": false, "prs": 19, "prsPerMonth": 19.0, "mergedPerMonth": 15.0, "mergeRate": 79, "medianAdditions": 22, "medianFiles": 6, "churnPerMonth": 6698, "repos": 4, "aiMentioned": 17}, {"month": "2026-05", "partial": false, "prs": 35, "prsPerMonth": 35.0, "mergedPerMonth": 34.0, "mergeRate": 97, "medianAdditions": 88, "medianFiles": 4, "churnPerMonth": 26206, "repos": 9, "aiMentioned": 28}, {"month": "2026-06", "partial": false, "prs": 44, "prsPerMonth": 44.0, "mergedPerMonth": 37.0, "mergeRate": 84, "medianAdditions": 152.0, "medianFiles": 4.5, "churnPerMonth": 17671, "repos": 11, "aiMentioned": 36}, {"month": "2026-07", "partial": false, "prs": 37, "prsPerMonth": 37.0, "mergedPerMonth": 33.0, "mergeRate": 89, "medianAdditions": 105, "medianFiles": 3, "churnPerMonth": 12615, "repos": 9, "aiMentioned": 37}, {"month": "2026-08", "partial": false, "prs": 48, "prsPerMonth": 48.0, "mergedPerMonth": 45.0, "mergeRate": 94, "medianAdditions": 220.5, "medianFiles": 4.5, "churnPerMonth": 23581, "repos": 14, "aiMentioned": 27}, {"month": "2026-09", "partial": false, "prs": 106, "prsPerMonth": 106.0, "mergedPerMonth": 72.0, "mergeRate": 68, "medianAdditions": 122.5, "medianFiles": 4.0, "churnPerMonth": 79817, "repos": 21, "aiMentioned": 40}, {"month": "2026-10", "partial": false, "prs": 47, "prsPerMonth": 47.0, "mergedPerMonth": 41.0, "mergeRate": 87, "medianAdditions": 143, "medianFiles": 4, "churnPerMonth": 16719, "repos": 15, "aiMentioned": 15}, {"month": "2026-11", "partial": true, "prs": 54, "prsPerMonth": 54.0, "mergedPerMonth": 39.0, "mergeRate": 72, "medianAdditions": 153.5, "medianFiles": 4.0, "churnPerMonth": 39388, "repos": 16, "aiMentioned": 16}], "quarters": [{"quarter": "2023 Q4", "firstMonth": "2023-11", "repos": 11, "mergeRate": 87}, {"quarter": "2024 Q1", "firstMonth": "2024-01", "repos": 12, "mergeRate": 91}, {"quarter": "2024 Q2", "firstMonth": "2024-04", "repos": 11, "mergeRate": 89}, {"quarter": "2024 Q3", "firstMonth": "2024-07", "repos": 7, "mergeRate": 98}, {"quarter": "2024 Q4", "firstMonth": "2024-10", "repos": 11, "mergeRate": 95}, {"quarter": "2025 Q1", "firstMonth": "2025-01", "repos": 11, "mergeRate": 87}, {"quarter": "2025 Q2", "firstMonth": "2025-04", "repos": 14, "mergeRate": 97}, {"quarter": "2025 Q3", "firstMonth": "2025-07", "repos": 10, "mergeRate": 90}, {"quarter": "2025 Q4", "firstMonth": "2025-10", "repos": 13, "mergeRate": 93}, {"quarter": "2026 Q1", "firstMonth": "2026-01", "repos": 9, "mergeRate": 90}, {"quarter": "2026 Q2", "firstMonth": "2026-04", "repos": 13, "mergeRate": 88}, {"quarter": "2026 Q3", "firstMonth": "2026-07", "repos": 26, "mergeRate": 79}, {"quarter": "2026 Q4", "firstMonth": "2026-10", "repos": 24, "mergeRate": 79}], "phases": {"baseline": {"from": "2024-12", "to": "2025-11", "prs": 207, "prsPerMonth": 17.2, "mergedPerMonth": 16.0, "mergeRate": 93, "medianAdditions": 22, "medianFiles": 2, "churnPerMonth": 3176, "repos": 23, "aiMentioned": 0}, "pre": {"from": "2023-11", "to": "2025-11", "prs": 410, "prsPerMonth": 16.4, "mergedPerMonth": 15.2, "mergeRate": 93, "medianAdditions": 24.0, "medianFiles": 3.0, "churnPerMonth": 3540, "repos": 32, "aiMentioned": 0}, "post": {"from": "2025-12", "to": "2026-11", "prs": 462, "prsPerMonth": 39.8, "mergedPerMonth": 32.9, "mergeRate": 83, "medianAdditions": 129.0, "medianFiles": 5.0, "churnPerMonth": 31662, "repos": 38, "aiMentioned": 239}, "bigger": {"from": "2025-12", "to": "2026-03", "prs": 72, "prsPerMonth": 18.0, "mergedPerMonth": 16.5, "mergeRate": 92, "medianAdditions": 158.5, "medianFiles": 7.0, "churnPerMonth": 36146, "repos": 10, "aiMentioned": 23}, "more": {"from": "2026-04", "to": "2026-11", "prs": 390, "prsPerMonth": 51.3, "mergedPerMonth": 41.6, "mergeRate": 81, "medianAdditions": 123.0, "medianFiles": 4.0, "churnPerMonth": 29302, "repos": 37, "aiMentioned": 216}}, "multiplier": {"prsPerMonth": 2.3, "mergedPerMonth": 2.1, "medianAdditions": 5.9, "churnPerMonth": 10.0}, "partialMonthNote": "2026-11 covers 18 of 30 days"};
+const NS = "http://www.w3.org/2000/svg";
+const M = DATA.monthly;
+const P = DATA.phases;
+const X = DATA.multiplier;
+const BASE = P.baseline.prsPerMonth;
+const firstAiMonth = DATA.firstAiDate.slice(0, 7);
+const isAi = m => m >= firstAiMonth;
+const fmt = n => n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(Math.round(n));
+const monthLabel = m => new Date(m + "-15").toLocaleString("en", { month: "short", year: "2-digit" });
+
+function el(tag, attrs = {}, parent) {
+  const node = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+  if (parent) parent.appendChild(node);
+  return node;
+}
+
+function sizeColor(additions) {
+  const t = Math.min(1, Math.log10(Math.max(additions, 1)) / Math.log10(400));
+  const lerp = (a, b) => Math.round(a + (b - a) * t);
+  return `rgb(${lerp(122, 255)},${lerp(90, 107)},${lerp(42, 61)})`;
+}
+
+const tip = document.getElementById("tip");
+function showTip(evt, html) {
+  tip.innerHTML = html;
+  tip.style.opacity = 1;
+  tip.style.left = Math.min(evt.clientX + 14, innerWidth - 220) + "px";
+  tip.style.top = evt.clientY + 14 + "px";
+}
+const hideTip = () => (tip.style.opacity = 0);
+
+function monthTip(d) {
+  return `<b>${monthLabel(d.month)}${d.partial ? " (partial)" : ""}</b><br>
+    ${d.prs} PRs opened · ${d.mergedPerMonth} merged<br>
+    <span class="m">median +${d.medianAdditions} lines · ${d.repos} repos</span>
+    ${d.aiMentioned ? `<br><span class="m">${d.aiMentioned} mention Claude/Codex</span>` : ""}`;
+}
+
+function frame(svg, { left = 44, right = 16, top = 24, bottom = 36 } = {}) {
+  const [, , w, h] = svg.getAttribute("viewBox").split(" ").map(Number);
+  return { w, h, left, right, top, bottom, iw: w - left - right, ih: h - top - bottom };
+}
+
+function yAxis(svg, f, max, ticks, suffix = "") {
+  const g = el("g", { class: "axis" }, svg);
+  for (const v of ticks) {
+    const y = f.top + f.ih - (v / max) * f.ih;
+    el("line", { x1: f.left, x2: f.w - f.right, y1: y, y2: y, "stroke-dasharray": "2 4" }, g);
+    el("text", { x: f.left - 8, y: y + 4, "text-anchor": "end" }, g).textContent = v + suffix;
+  }
+}
+
+function xLabels(svg, f, items, xOf) {
+  items.forEach((d, i) => {
+    const nearAi = Math.abs(items.findIndex(x => x.month === firstAiMonth) - i) <= 2 && d.month !== firstAiMonth;
+    const nearEnd = items.length - 1 - i <= 2 && i !== items.length - 1;
+    if ((d.month.endsWith("-01") && !nearAi && !nearEnd) || i === items.length - 1 || d.month === firstAiMonth) {
+      const t = el("text", { x: xOf(i), y: f.h - 12, "text-anchor": "middle" }, svg);
+      t.textContent = monthLabel(d.month);
+      if (d.month === firstAiMonth) t.setAttribute("fill", "var(--ai)");
+    }
+  });
+}
+
+function renderHero() {
+  document.getElementById("heroLede").textContent =
+    `${P.baseline.prsPerMonth} PRs/month in the 12 months before ${DATA.firstAiDate}, your first Claude-attributed commit. ` +
+    `${P.post.prsPerMonth}/month in the 12 months after.`;
+  const stats = [
+    [X.mergedPerMonth + "×", `merged PRs per month (${P.baseline.mergedPerMonth} → ${P.post.mergedPerMonth})`],
+    [X.medianAdditions + "×", `median PR size (+${P.baseline.medianAdditions} → +${P.post.medianAdditions} lines)`],
+    ["~" + Math.round(X.churnPerMonth) + "×", `lines changed per month (${fmt(P.baseline.churnPerMonth)} → ${fmt(P.post.churnPerMonth)})`],
+    [P.pre.repos + " → " + P.post.repos, "repos touched (2 yrs pre vs 1 yr post)"],
+  ];
+  document.getElementById("heroStats").innerHTML =
+    stats.map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("");
+  const target = X.prsPerMonth, node = document.getElementById("heroNum"), t0 = performance.now();
+  if (location.search.includes("static")) return void (node.textContent = target.toFixed(1));
+  (function tick(now) {
+    const p = Math.min(1, (now - t0) / 1600), eased = 1 - Math.pow(1 - p, 3);
+    node.textContent = (1 + (target - 1) * eased).toFixed(1);
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+function renderBars() {
+  const svg = document.getElementById("barChart"), f = frame(svg);
+  const max = Math.ceil(Math.max(...M.map(d => d.prs)) / 20) * 20;
+  const slot = f.iw / M.length, bw = slot * 0.72;
+  const xOf = i => f.left + i * slot + slot / 2;
+  const aiIndex = M.findIndex(d => isAi(d.month));
+  const band = (from, to, label, fill) => {
+    const x1 = f.left + from * slot, x2 = f.left + (to + 1) * slot;
+    el("rect", { x: x1, y: f.top, width: x2 - x1, height: f.ih, fill }, svg);
+    el("text", { x: x1 + 8, y: f.top + 14, fill: "var(--muted)" }, svg).textContent = label;
+  };
+  const idx = m => M.findIndex(d => d.month === m);
+  band(idx(P.bigger.from), idx(P.bigger.to), "Bigger PRs", "rgba(255,179,71,.05)");
+  band(idx(P.more.from), idx(P.more.to), "More PRs", "rgba(255,107,61,.07)");
+  yAxis(svg, f, max, [0, 20, 40, 60, 80, 100].filter(v => v <= max));
+  M.forEach((d, i) => {
+    const h = (d.prs / max) * f.ih;
+    const r = el("rect", {
+      class: "grow", x: xOf(i) - bw / 2, y: f.top + f.ih - h, width: bw, height: Math.max(h, 0.5), rx: 2,
+      fill: isAi(d.month) ? sizeColor(d.medianAdditions) : "var(--pre)", opacity: d.partial ? 0.6 : 1,
+      style: `transition-delay:${i * 25}ms`,
+    }, svg);
+    r.addEventListener("mousemove", e => showTip(e, monthTip(d)));
+    r.addEventListener("mouseleave", hideTip);
+  });
+  const baseY = f.top + f.ih - (BASE / max) * f.ih;
+  el("line", { x1: f.left, x2: f.w - f.right, y1: baseY, y2: baseY, stroke: "var(--muted)", "stroke-width": 1, "stroke-dasharray": "6 4" }, svg);
+  el("text", { x: f.left + 6, y: baseY - 6 }, svg).textContent = `pre-AI baseline · ${BASE}/mo`;
+  const ax = f.left + aiIndex * slot;
+  el("line", { x1: ax, x2: ax, y1: f.top - 8, y2: f.top + f.ih, stroke: "var(--ai)", "stroke-dasharray": "4 4", "stroke-width": 1.5 }, svg);
+  const lbl = el("text", { x: ax - 6, y: f.top - 12, "text-anchor": "end", fill: "var(--ai)" }, svg);
+  lbl.textContent = `${DATA.firstAiDate} · first Claude commit`;
+  xLabels(svg, f, M, xOf);
+}
+
+function renderGap() {
+  const svg = document.getElementById("gapChart"), f = frame(svg, { left: 52 });
+  const post = M.filter(d => isAi(d.month));
+  let actual = 0;
+  const pts = post.map((d, i) => {
+    const weight = d.partial ? 18 / 30 : 1;
+    actual += d.prs;
+    return { d, actual, projected: BASE * (post.slice(0, i).length + weight) };
+  });
+  const last = pts[pts.length - 1];
+  const extra = Math.round(last.actual - last.projected);
+  document.getElementById("gapLede").textContent =
+    `At the pre-AI pace of ${BASE}/month you would have opened about ${Math.round(last.projected)} PRs since December 2025. ` +
+    `You opened ${last.actual}. That is ${extra} extra PRs.`;
+  const max = Math.ceil(last.actual / 100) * 100;
+  const xOf = i => f.left + (i / (pts.length - 1)) * f.iw;
+  const yOf = v => f.top + f.ih - (v / max) * f.ih;
+  yAxis(svg, f, max, Array.from({ length: max / 100 + 1 }, (_, i) => i * 100));
+  const line = key => pts.map((p, i) => `${i ? "L" : "M"}${xOf(i)},${yOf(p[key])}`).join("");
+  const area = line("actual") + pts.slice().reverse().map((p, j) => `L${xOf(pts.length - 1 - j)},${yOf(p.projected)}`).join("") + "Z";
+  el("path", { d: area, fill: "rgba(255,179,71,.18)" }, svg);
+  for (const [key, color, width] of [["projected", "var(--pre)", 2], ["actual", "var(--ai)", 3]]) {
+    const path = el("path", { d: line(key), fill: "none", stroke: color, "stroke-width": width, class: "draw" }, svg);
+    const len = path.getTotalLength();
+    path.style.setProperty("--len", len);
+  }
+  pts.forEach((p, i) => {
+    const c = el("circle", { cx: xOf(i), cy: yOf(p.actual), r: 4, fill: "var(--bg)", stroke: "var(--ai)", "stroke-width": 2 }, svg);
+    c.addEventListener("mousemove", e => showTip(e,
+      `<b>Through ${monthLabel(p.d.month)}</b><br>${p.actual} actual · ${Math.round(p.projected)} at old pace<br><span class="m">+${Math.round(p.actual - p.projected)} extra</span>`));
+    c.addEventListener("mouseleave", hideTip);
+  });
+  const lx = xOf(pts.length - 1);
+  el("text", { x: lx - 8, y: (yOf(last.actual) + yOf(last.projected)) / 2 + 6, "text-anchor": "end", fill: "var(--ai)", style: "font-size:26px;font-weight:800" }, svg)
+    .textContent = `+${extra} PRs`;
+  xLabels(svg, f, post, xOf);
+}
+
+function renderRate() {
+  const svg = document.getElementById("rateChart"), f = frame(svg);
+  const roll = M.map((d, i) => {
+    const win = M.slice(Math.max(0, i - 2), i + 1);
+    const months = win.reduce((s, w) => s + (w.partial ? 18 / 30 : 1), 0);
+    return { d, x: win.reduce((s, w) => s + w.prs, 0) / months / BASE };
+  }).slice(2);
+  const max = Math.ceil(Math.max(...roll.map(r => r.x)));
+  const xOf = i => f.left + (i / (roll.length - 1)) * f.iw;
+  const yOf = v => f.top + f.ih - (v / max) * f.ih;
+  yAxis(svg, f, max, Array.from({ length: max + 1 }, (_, i) => i), "×");
+  el("line", { x1: f.left, x2: f.w - f.right, y1: yOf(1), y2: yOf(1), stroke: "var(--pre)", "stroke-width": 1.5 }, svg);
+  const aiI = roll.findIndex(r => isAi(r.d.month));
+  const seg = (from, to, color) => {
+    const d = roll.slice(from, to + 1).map((r, j) => `${j ? "L" : "M"}${xOf(from + j)},${yOf(r.x)}`).join("");
+    const p = el("path", { d, fill: "none", stroke: color, "stroke-width": 3, "stroke-linejoin": "round", class: "draw" }, svg);
+    p.style.setProperty("--len", p.getTotalLength());
+  };
+  seg(0, aiI, "var(--pre)");
+  seg(aiI, roll.length - 1, "var(--ai)");
+  const peak = roll.reduce((a, b) => (b.x > a.x ? b : a));
+  roll.forEach((r, i) => {
+    const c = el("circle", { cx: xOf(i), cy: yOf(r.x), r: r === peak ? 6 : 3, fill: isAi(r.d.month) ? "var(--ai)" : "var(--pre)" }, svg);
+    c.addEventListener("mousemove", e => showTip(e, `<b>3 months to ${monthLabel(r.d.month)}</b><br>${r.x.toFixed(1)}× baseline`));
+    c.addEventListener("mouseleave", hideTip);
+  });
+  const pi = roll.indexOf(peak);
+  el("text", { x: xOf(pi) - 12, y: yOf(peak.x) + 4, "text-anchor": "end", fill: "var(--ai)", style: "font-size:15px;font-weight:700" }, svg)
+    .textContent = `peak ${peak.x.toFixed(1)}× · ${monthLabel(peak.d.month)}`;
+  xLabels(svg, f, roll.map(r => r.d), xOf);
+}
+
+function renderPhases() {
+  const cards = [
+    ["Before AI", P.baseline, "var(--pre)", "The steady state: small, frequent PRs."],
+    ["Phase 1 · Bigger", P.bigger, "#ffb347", "About the same count, but each PR is several times larger."],
+    ["Phase 2 · More", P.more, "#ff6b3d", "Size settles, volume takes off, and PR descriptions start crediting Claude and Codex."],
+  ];
+  const maxAdd = Math.max(...cards.map(c => c[1].medianAdditions));
+  document.getElementById("phaseCards").innerHTML = cards.map(([name, p, color, blurb]) => {
+    const side = Math.round(6 + 16 * Math.sqrt(p.medianAdditions / maxAdd));
+    const n = Math.round(p.prsPerMonth);
+    const squares = Array.from({ length: n }, (_, i) =>
+      `<i style="width:${side}px;height:${side}px;background:${color};transition-delay:${i * 18}ms"></i>`).join("");
+    return `<div class="phase"><h3>${name}</h3><div class="when">${monthLabel(p.from)} – ${monthLabel(p.to)}</div>
+      <div class="num">${p.prsPerMonth}<small> PRs/mo · median +${p.medianAdditions} lines</small></div>
+      <div class="grid">${squares}</div><div class="note">${blurb}</div></div>`;
+  }).join("");
+}
+
+function renderReach() {
+  const svg = document.getElementById("reachChart"), f = frame(svg, { right: 44 });
+  const rows = DATA.quarters.map(r => ({ q: r.quarter, repos: r.repos, mergeRate: r.mergeRate / 100, ai: r.quarter >= "2026 Q1" }));
+  const max = Math.ceil(Math.max(...rows.map(r => r.repos)) / 5) * 5;
+  const slot = f.iw / rows.length, bw = slot * 0.6;
+  yAxis(svg, f, max, Array.from({ length: max / 5 + 1 }, (_, i) => i * 5));
+  rows.forEach((r, i) => {
+    const h = (r.repos / max) * f.ih, x = f.left + i * slot + (slot - bw) / 2;
+    const b = el("rect", { class: "grow", x, y: f.top + f.ih - h, width: bw, height: h, rx: 3, fill: r.ai ? "var(--ai)" : "var(--pre)", style: `transition-delay:${i * 50}ms` }, svg);
+    b.addEventListener("mousemove", e => showTip(e, `<b>${r.q}</b><br>${r.repos} distinct repos<br><span class="m">merge rate ${Math.round(r.mergeRate * 100)}%</span>`));
+    b.addEventListener("mouseleave", hideTip);
+    el("text", { x: x + bw / 2, y: f.h - 12, "text-anchor": "middle" }, svg).textContent = r.q.replace("20", "'");
+  });
+  const yRate = v => f.top + f.ih - v * f.ih;
+  const d = rows.map((r, i) => `${i ? "L" : "M"}${f.left + i * slot + slot / 2},${yRate(r.mergeRate)}`).join("");
+  const p = el("path", { d, fill: "none", stroke: "var(--good)", "stroke-width": 2, class: "draw" }, svg);
+  p.style.setProperty("--len", p.getTotalLength());
+  el("text", { x: f.w - f.right + 6, y: yRate(1) + 4, fill: "var(--good)" }, svg).textContent = "100%";
+  el("text", { x: f.w - f.right + 6, y: yRate(0.5) + 4, fill: "var(--good)" }, svg).textContent = "50%";
+}
+
+function renderCaveats() {
+  const items = [
+    ["Lines changed overstates the gain.", "Post-AI PRs include generated code, PRDs and design docs. PR count is the most honest measure here."],
+    ["Merge rate is biased down.", `Recent PRs are still open. Post-AI merge rate is ${P.post.mergeRate}% vs ${P.baseline.mergeRate}% before.`],
+    ["History starts in Nov 2023.", "Work from 2019 to Oct 2023 isn't on this GitHub account, so the baseline is Dec 2024 to Nov 2025."],
+    ["This is a correlation.", "Team, projects and on-call load changed over the same period. AI is the most likely cause, not a proven one."],
+    ["The last month is partial.", DATA.partialMonthNote + ". Its bar is drawn faded, and rates are pro-rated."],
+  ];
+  document.getElementById("caveatList").innerHTML = items.map(([b, t]) => `<li><b>${b}</b> ${t}</li>`).join("");
+  document.getElementById("foot").textContent =
+    `Source: GitHub GraphQL search, author:greguezono type:pr, ${DATA.totalPrs} PRs. AI start = first commit with a "Co-Authored-By: Claude" trailer.`;
+}
+
+renderHero(); renderBars(); renderGap(); renderRate(); renderPhases(); renderReach(); renderCaveats();
+
+if (location.search.includes("static")) {
+  document.documentElement.style.setProperty("--static", 1);
+  document.querySelectorAll("*").forEach(n => (n.style.transition = "none"));
+  document.querySelectorAll("section").forEach(s => s.classList.add("seen"));
+}
+const io = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add("seen")), { threshold: 0.15 });
+document.querySelectorAll("section").forEach(s => io.observe(s));
+</script>
+</body>
+</html>
