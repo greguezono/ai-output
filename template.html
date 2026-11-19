@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Inflection — GitHub output before and after AI</title>
+<title>guezono_digital_home · Professional</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     color-scheme: dark;
@@ -18,6 +19,8 @@
   h1, h2 { letter-spacing: -0.02em; margin: 0 0 8px; }
   h2 { font-size: 28px; }
   .kicker { color: var(--ai); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; }
+  .kicker a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+  .kicker a:hover { color: var(--text); }
   .lede { color: var(--muted); max-width: 680px; }
   .top { padding-top: 48px; opacity: 1; transform: none; }
   .top h1 { font-size: clamp(30px, 4vw, 44px); }
@@ -62,12 +65,80 @@
   section.seen .draw { stroke-dashoffset: 0; }
   .grow { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); transition: transform .7s ease; }
   section.seen .grow { transform: scaleY(1); }
+  body { padding-top: 64px; }
+  body[data-tab="personal"] { overflow: hidden; }
+
+  /* sea-glass tab pill */
+  .tabs { position: fixed; z-index: 30; top: 14px; left: 50%; transform: translateX(-50%); display: flex; padding: 5px;
+          border-radius: 26px 30px 24px 32px / 30px 24px 32px 26px; overflow: hidden;
+          background: rgba(255,255,255,.08); backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6);
+          border: 1px solid rgba(255,255,255,.18);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.45), inset 0 -1px 0 rgba(0,0,0,.15), 0 8px 24px rgba(0,0,0,.35);
+          transition: background .5s ease, border-color .5s ease; }
+  .tabs::before { content: ""; position: absolute; inset: 0; opacity: .18; pointer-events: none; mix-blend-mode: overlay;
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .tabs::after { content: ""; position: absolute; inset: -40%; opacity: 0; pointer-events: none; transition: opacity .6s ease;
+          background: repeating-radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0) 0 14px, rgba(255,255,255,.35) 16px, rgba(255,255,255,0) 19px);
+          animation: caustic 6s linear infinite; }
+  @keyframes caustic { to { transform: translate(18%, 10%) rotate(8deg); } }
+  body[data-tab="personal"] .tabs { background: rgba(120,210,200,.22); border-color: rgba(200,255,245,.45); }
+  body[data-tab="personal"] .tabs::after { opacity: .55; }
+  .tabs a { position: relative; z-index: 2; color: rgba(230,233,239,.75); text-decoration: none; font-size: 14px; font-weight: 600;
+            letter-spacing: .02em; padding: 10px 22px; border-radius: 999px; transition: color .3s; }
+  .tabs a:hover { color: #fff; }
+  .tabs a[aria-selected="true"] { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+  body[data-tab="personal"] .tabs a { color: rgba(20,50,60,.7); }
+  body[data-tab="personal"] .tabs a[aria-selected="true"] { color: #0c2f3a; text-shadow: 0 1px 0 rgba(255,255,255,.5); }
+  .tabs a:focus-visible { outline: 2px solid var(--ai); outline-offset: -2px; }
+  .drop { position: absolute; z-index: 1; top: 5px; bottom: 5px; left: 5px; width: 0; border-radius: 999px; overflow: hidden;
+          background: linear-gradient(180deg, rgba(255,190,90,.55), rgba(255,140,60,.35));
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 2px 8px rgba(0,0,0,.25);
+          transition: left .45s cubic-bezier(.5,1.6,.4,1), width .45s cubic-bezier(.5,1.6,.4,1), background .5s ease; }
+  body[data-tab="personal"] .drop { background: linear-gradient(180deg, rgba(220,255,250,.75), rgba(110,200,215,.55)); }
+  .drop i { position: absolute; left: -50%; right: -50%; bottom: -60%; height: 80%; opacity: 0; transition: opacity .4s, bottom .6s ease;
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='20'%3E%3Cpath d='M0 8 Q15 0 30 8 T60 8 V20 H0Z' fill='%232f8fbf' fill-opacity='.7'/%3E%3Cpath d='M0 8 Q15 0 30 8 T60 8' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x 0 0 / 30px 100%;
+          animation: lap 2.4s linear infinite; }
+  body[data-tab="personal"] .drop i { opacity: 1; bottom: -30%; }
+  @keyframes lap { to { background-position: 30px 0; } }
+
+  /* panels */
+  #professional { transition: opacity .25s ease, transform .25s ease; }
+  #professional.entering { opacity: 0; transform: translateY(8px); transition: none; }
+  #personal { position: fixed; inset: 0; z-index: 20; background: #9fd3ec; transition: opacity .25s ease; }
+  #personal.off { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .25s ease, visibility 0s .25s; }
+  #personal iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+  /* glass-water tide, played when switching to Personal */
+  #wash { position: fixed; inset: 0; z-index: 25; pointer-events: none; overflow: hidden; visibility: hidden; }
+  #wash.on { visibility: visible; }
+  #wash .w { position: absolute; left: -10%; right: -10%; top: 0; height: 125%; transform: translateY(100%);
+             transition: transform .55s cubic-bezier(.45,0,.3,1); }
+  #wash .w svg { position: absolute; left: 0; top: -38px; width: 100%; height: 40px; }
+  #wash .w1 { background: linear-gradient(rgba(232,214,170,.45), rgba(232,214,170,0) 30%); }
+  #wash .w2 { background: linear-gradient(rgba(120,205,220,.25), rgba(120,205,220,.08) 40%); transition-delay: .07s; }
+  #wash .w3 { background: linear-gradient(rgba(40,130,180,.28), rgba(40,130,180,.12) 50%); transition-delay: .14s;
+              backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+  #wash.in .w { transform: translateY(-14%); }
+  #wash.out .w { transform: translateY(105%); transition-duration: .6s; }
+  #wash.out .w1 { transition-delay: .14s; } #wash.out .w3 { transition-delay: 0s; }
+
+  @media (max-width: 700px) { .tabs a { padding: 9px 18px; } }
+  @media (prefers-reduced-motion: reduce) {
+    #wash { display: none; }
+    .drop, .drop i, .tabs::after { transition-duration: .15s; animation: none; }
+    #professional, #professional.entering { transform: none; }
+  }
 </style>
 </head>
 <body>
-<main>
+<nav class="tabs" role="tablist" aria-label="Page">
+  <span class="drop" aria-hidden="true"><i></i></span>
+  <a href="#professional" role="tab" id="tab-professional" aria-controls="professional">Professional</a>
+  <a href="#personal" role="tab" id="tab-personal" aria-controls="personal">Personal</a>
+</nav>
+<main id="professional" role="tabpanel" aria-labelledby="tab-professional">
   <section class="top" id="timeline">
-    <div class="kicker">GitHub output · greguezono · Nov 2023 – <span id="seriesEndLabel"></span></div>
+    <div class="kicker">GitHub output · <a href="https://github.com/greguezono" rel="me">guezono_digital_home</a> · Nov 2023 – <span id="seriesEndLabel"></span></div>
     <h1>Every month, every PR</h1>
     <p class="lede">Number above each bar is PRs opened that month. Color shows how big the typical PR was: grey is pre-AI, hot amber is huge. Hover a bar for details.</p>
     <div class="card"><svg id="barChart" viewBox="0 0 1000 380"></svg>
@@ -83,7 +154,7 @@
   <section class="hero" id="hero">
     <div class="kicker">01 · The headline</div>
     <div class="big"><span id="heroNum">1.0</span><small>×</small></div>
-    <h2>more pull requests per month since AI arrived.</h2>
+    <h2>more merged code shipped per month since AI arrived.</h2>
     <p class="lede" id="heroLede"></p>
     <div class="stats" id="heroStats"></div>
   </section>
@@ -135,6 +206,12 @@
     <footer id="foot"></footer>
   </section>
 </main>
+<div id="personal" class="off" role="tabpanel" aria-labelledby="tab-personal"></div>
+<div id="wash" aria-hidden="true">
+  <div class="w w1"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 30 Q150 0 300 25 T600 22 T900 26 T1200 20 V40 H0Z" fill="rgba(232,214,170,.45)"/></svg></div>
+  <div class="w w2"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 28 Q100 5 250 24 T550 20 T850 26 T1200 18 V40 H0Z" fill="rgba(120,205,220,.25)"/><path d="M0 28 Q100 5 250 24 T550 20 T850 26 T1200 18" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 8" opacity=".9"/></svg></div>
+  <div class="w w3"><svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 24 Q200 2 400 22 T800 18 T1200 24 V40 H0Z" fill="rgba(40,130,180,.28)"/><path d="M0 24 Q200 2 400 22 T800 18 T1200 24" fill="none" stroke="#fff" stroke-width="3" opacity=".85"/></svg></div>
+</div>
 <div id="tip"></div>
 
 <script>
@@ -207,12 +284,12 @@ function xLabels(svg, f, items, xOf) {
 
 function renderHero() {
   document.getElementById("heroLede").textContent =
-    `${P.baseline.prsPerMonth} PRs/month in the 12 months before ${DATA.firstAiDate}, your first Claude-attributed commit. ` +
-    `${P.post.prsPerMonth}/month in the ${P.post.months} months after.`;
+    `Lines added plus deleted in merged PRs: ${fmt(P.baseline.mergedChurnPerMonth)}/month in the 12 months before ${DATA.firstAiDate}, your first Claude-attributed commit. ` +
+    `${fmt(P.post.mergedChurnPerMonth)}/month in the ${P.post.months} months after.`;
   const stats = [
+    [X.prsPerMonth + "×", `PRs opened per month (${P.baseline.prsPerMonth} → ${P.post.prsPerMonth})`],
     [X.mergedPerMonth + "×", `merged PRs per month (${P.baseline.mergedPerMonth} → ${P.post.mergedPerMonth})`],
     [X.medianAdditions + "×", `median PR size (+${P.baseline.medianAdditions} → +${P.post.medianAdditions} lines)`],
-    ["~" + Math.round(X.churnPerMonth) + "×", `lines changed per month (${fmt(P.baseline.churnPerMonth)} → ${fmt(P.post.churnPerMonth)})`],
     [P.pre.repos + " → " + P.post.repos, `repos touched (${P.pre.months} months pre vs ${P.post.months} post)`],
   ];
   document.getElementById("heroStats").innerHTML =
@@ -220,7 +297,7 @@ function renderHero() {
 }
 
 function countUpHero() {
-  const target = X.prsPerMonth, node = document.getElementById("heroNum"), t0 = performance.now();
+  const target = X.mergedChurnPerMonth, node = document.getElementById("heroNum"), t0 = performance.now();
   if (location.search.includes("static")) return void (node.textContent = target.toFixed(1));
   (function tick(now) {
     const p = Math.min(1, (now - t0) / 1600), eased = 1 - Math.pow(1 - p, 3);
@@ -378,7 +455,7 @@ function renderReach() {
 
 function renderCaveats() {
   const items = [
-    ["Lines changed overstates the gain.", "Post-AI PRs include generated code, PRDs and design docs. PR count is the most honest measure here."],
+    ["Lines changed overstates the gain.", `The headline counts merged PRs only, but post-AI PRs still include generated code, PRDs and design docs. PR count (${X.prsPerMonth}×) is the most conservative measure.`],
     ["Merge rate is biased down.", `Recent PRs are still open. Post-AI merge rate is ${P.post.mergeRate}% vs ${P.baseline.mergeRate}% before.`],
     ["History starts in Nov 2023.", "Work from 2019 to Oct 2023 isn't on this GitHub account, so the baseline is Dec 2024 to Nov 2025."],
     ["This is a correlation.", "Team, projects and on-call load changed over the same period. AI is the most likely cause, not a proven one."],
@@ -405,6 +482,80 @@ const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.target.id === "hero") countUpHero();
 }), { threshold: 0.15 });
 document.querySelectorAll("section").forEach(s => io.observe(s));
+
+const TABS = ["professional", "personal"];
+const panes = { professional: document.getElementById("professional"), personal: document.getElementById("personal") };
+const wash = document.getElementById("wash"), drop = document.querySelector(".tabs .drop");
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+let current = null, proScroll = 0, switching = Promise.resolve();
+const whenAtlasReady = new Promise(resolve => addEventListener("message", e => {
+  if (e.origin === location.origin && e.data === "atlas-ready") resolve();
+}));
+
+function placeDrop() {
+  const tab = document.getElementById("tab-" + (current || "professional"));
+  drop.style.left = tab.offsetLeft + "px"; drop.style.width = tab.offsetWidth + "px";
+}
+
+function ensureAtlas() {
+  if (panes.personal.firstChild) return;
+  const frame = document.createElement("iframe");
+  frame.src = "atlas.html";
+  frame.title = "Illustrated travel map";
+  panes.personal.append(frame);
+}
+
+async function enterPersonal(animate) {
+  ensureAtlas();
+  if (animate) {
+    wash.className = "on"; void wash.offsetWidth; wash.className = "on in";
+    await Promise.all([sleep(650), Promise.race([whenAtlasReady, sleep(1500)])]);
+  }
+  panes.personal.classList.remove("off");
+  panes.professional.hidden = true;
+  panes.personal.querySelector("iframe").focus({ preventScroll: true });
+  if (animate) {
+    wash.className = "on out"; await sleep(800); wash.className = "";
+  }
+}
+
+async function enterProfessional(animate) {
+  panes.professional.hidden = false;
+  window.scrollTo(0, proScroll);
+  if (animate) {
+    panes.professional.classList.add("entering"); void panes.professional.offsetWidth;
+    panes.professional.classList.remove("entering");
+  }
+  panes.personal.classList.add("off");
+}
+
+function showTab(name) {
+  if (!TABS.includes(name)) name = "professional";
+  if (name === current) return;
+  const animate = current !== null && !reducedMotion();
+  if (current === "professional") proScroll = window.scrollY;
+  current = name;
+  document.body.dataset.tab = name;
+  for (const t of TABS) {
+    const tab = document.getElementById("tab-" + t);
+    tab.setAttribute("aria-selected", String(t === name));
+    tab.tabIndex = t === name ? 0 : -1;
+  }
+  placeDrop();
+  document.title = "guezono_digital_home · " + (name === "personal" ? "Personal" : "Professional");
+  switching = switching.then(() => name === "personal" ? enterPersonal(animate) : enterProfessional(animate));
+}
+
+document.querySelectorAll(".tabs a").forEach((tab, i, all) => tab.addEventListener("keydown", e => {
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  const next = all[(i + (e.key === "ArrowRight" ? 1 : all.length - 1)) % all.length];
+  next.focus(); next.click();
+}));
+addEventListener("hashchange", () => showTab(location.hash.slice(1)));
+addEventListener("resize", placeDrop);
+document.fonts.ready.then(placeDrop);
+showTab(location.hash.slice(1));
 </script>
 </body>
 </html>

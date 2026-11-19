@@ -93,6 +93,7 @@ def summarize(prs, month_count):
         "medianAdditions": st.median(p["additions"] for p in prs) if prs else 0,
         "medianFiles": st.median(p["changedFiles"] for p in prs) if prs else 0,
         "churnPerMonth": round(sum(p["additions"] + p["deletions"] for p in prs) / month_count),
+        "mergedChurnPerMonth": round(sum(p["additions"] + p["deletions"] for p in merged) / month_count),
         "repos": len({p["repo"] for p in prs}),
         "aiMentioned": sum(p["claude"] for p in prs),
     }
@@ -136,7 +137,7 @@ def build(series_end):
 
     multiplier = {
         k: round(phases["post"][k] / phases["baseline"][k], 1)
-        for k in ("prsPerMonth", "mergedPerMonth", "medianAdditions", "churnPerMonth")
+        for k in ("prsPerMonth", "mergedPerMonth", "medianAdditions", "churnPerMonth", "mergedChurnPerMonth")
     }
     data = {
         "firstAiDate": FIRST_AI_DATE,

@@ -1,0 +1,2192 @@
+{
+  "schemaVersion": 1,
+  "title": "Countries and Places I’ve Lived and Visited",
+  "quote": "No man ever steps in the same river twice, for it is not the same river and he is not the same man.",
+  "coordinateOrder": [
+    "longitude",
+    "latitude"
+  ],
+  "places": [
+    {
+      "id": "palm-desert",
+      "name": "Palm Desert",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -116.3826,
+        33.7288
+      ],
+      "precision": "city",
+      "area": "California"
+    },
+    {
+      "id": "berkeley",
+      "name": "Berkeley",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -122.2729,
+        37.8708
+      ],
+      "precision": "city",
+      "area": "California"
+    },
+    {
+      "id": "oakland",
+      "name": "Oakland",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -122.2714,
+        37.8045
+      ],
+      "precision": "city",
+      "area": "California"
+    },
+    {
+      "id": "san-francisco",
+      "name": "San Francisco",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -122.4075,
+        37.7879
+      ],
+      "precision": "city",
+      "area": "California"
+    },
+    {
+      "id": "boston",
+      "name": "Boston",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -71.0578,
+        42.3588
+      ],
+      "precision": "city",
+      "area": "Massachusetts"
+    },
+    {
+      "id": "plantation",
+      "name": "Plantation",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -80.2331,
+        26.1276
+      ],
+      "precision": "city",
+      "area": "Florida"
+    },
+    {
+      "id": "bradenton",
+      "name": "Bradenton",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -82.5748,
+        27.4989
+      ],
+      "precision": "city",
+      "area": "Florida"
+    },
+    {
+      "id": "boca-raton",
+      "name": "Boca Raton",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -80.0831,
+        26.3587
+      ],
+      "precision": "city",
+      "area": "Florida"
+    },
+    {
+      "id": "memphis",
+      "name": "Memphis",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -90.0518,
+        35.146
+      ],
+      "precision": "city",
+      "area": "Tennessee"
+    },
+    {
+      "id": "brooklyn",
+      "name": "Brooklyn",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -73.9497,
+        40.6526
+      ],
+      "precision": "city",
+      "area": "New York"
+    },
+    {
+      "id": "shreveport",
+      "name": "Shreveport",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "lived"
+      ],
+      "coordinates": [
+        -93.7478,
+        32.5135
+      ],
+      "precision": "city",
+      "area": "Louisiana"
+    },
+    {
+      "id": "sao-paulo",
+      "name": "São Paulo",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "lived",
+        "visited"
+      ],
+      "coordinates": [
+        -46.6334,
+        -23.5507
+      ],
+      "precision": "city"
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        12.4829,
+        41.8933
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "montepulciano",
+      "name": "Montepulciano",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        11.7827,
+        43.0945
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "milan",
+      "name": "Milan",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        9.1896,
+        45.4642
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "polignano-a-mare",
+      "name": "Polignano a Mare",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        17.2225,
+        40.9944
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "castro",
+      "name": "Castro",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.4257,
+        40.007
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "alberobello",
+      "name": "Alberobello",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        17.2377,
+        40.7841
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "matera",
+      "name": "Matera",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        16.6063,
+        40.667
+      ],
+      "precision": "city"
+    },
+    {
+      "id": "santa-maria-di-leuca",
+      "name": "Santa Maria di Leuca",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.3545,
+        39.7967
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "otranto",
+      "name": "Otranto",
+      "country": "Italy",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.4908,
+        40.1457
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        2.3484,
+        48.8535
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "chateauneuf-du-pape",
+      "name": "Châteauneuf-du-Pape",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        4.8317,
+        44.056
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "les-baux-de-provence",
+      "name": "Les Baux-de-Provence",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        4.795,
+        43.7436
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        4.8079,
+        44.1371
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "chamonix",
+      "name": "Chamonix",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        6.87,
+        45.9231
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "cote-d-azur",
+      "name": "Côte d'Azur",
+      "country": "France",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        6.7227,
+        43.4264
+      ],
+      "precision": "area",
+      "note": "French Riviera region."
+    },
+    {
+      "id": "verbier",
+      "name": "Verbier",
+      "country": "Switzerland",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        7.2287,
+        46.0961
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "cappadocia",
+      "name": "Cappadocia",
+      "country": "Turkey",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        34.8296,
+        38.6421
+      ],
+      "precision": "area",
+      "note": "Regional pin near Göreme."
+    },
+    {
+      "id": "istanbul",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        28.9759,
+        41.0064
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "mykonos",
+      "name": "Mykonos",
+      "country": "Greece",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        25.3923,
+        37.4514
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "athens",
+      "name": "Athens",
+      "country": "Greece",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        23.7348,
+        37.9756
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "monemvasia",
+      "name": "Monemvasia",
+      "country": "Greece",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        23.0506,
+        36.6879
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "thessaloniki",
+      "name": "Thessaloniki",
+      "country": "Greece",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        22.9353,
+        40.6403
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "syros",
+      "name": "Syros",
+      "country": "Greece",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        24.9423,
+        37.4446
+      ],
+      "precision": "area",
+      "note": "Island pin near Ermoupoli."
+    },
+    {
+      "id": "kotor",
+      "name": "Kotor",
+      "country": "Montenegro",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.7713,
+        42.4249
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "vlore",
+      "name": "Vlorë",
+      "country": "Albania",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        19.4913,
+        40.4708
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "dubrovnik",
+      "name": "Dubrovnik",
+      "country": "Croatia",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.094,
+        42.6491
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "split",
+      "name": "Split",
+      "country": "Croatia",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        16.44,
+        43.5116
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "hvar",
+      "name": "Hvar",
+      "country": "Croatia",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        16.5565,
+        43.1739
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "munich",
+      "name": "Munich",
+      "country": "Germany",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        11.5754,
+        48.1371
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "berlin",
+      "name": "Berlin",
+      "country": "Germany",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        13.3951,
+        52.5174
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "barcelona",
+      "name": "Barcelona",
+      "country": "Spain",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        2.1771,
+        41.3826
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "mallorca",
+      "name": "Mallorca",
+      "country": "Spain",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        2.8829,
+        39.6134
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "ibiza",
+      "name": "Ibiza",
+      "country": "Spain",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        1.4197,
+        38.9744
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "london",
+      "name": "London",
+      "country": "United Kingdom",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -0.1278,
+        51.5074
+      ],
+      "precision": "city",
+      "note": "England."
+    },
+    {
+      "id": "amsterdam",
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        4.8925,
+        52.3731
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "vatican-city",
+      "name": "Vatican City",
+      "country": "Vatican City",
+      "region": "Europe",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        12.4529,
+        41.9034
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "johannesburg",
+      "name": "Johannesburg",
+      "country": "South Africa",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        28.0497,
+        -26.205
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "cape-town",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        18.4172,
+        -33.9288
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "kruger-national-park",
+      "name": "Kruger National Park",
+      "country": "South Africa",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        31.5084,
+        -23.9358
+      ],
+      "precision": "area",
+      "note": "Safari."
+    },
+    {
+      "id": "marrakech",
+      "name": "Marrakech",
+      "country": "Morocco",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -7.9892,
+        31.6258
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "casablanca",
+      "name": "Casablanca",
+      "country": "Morocco",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -7.62,
+        33.5945
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "canary-islands",
+      "name": "Canary Islands",
+      "country": "Spain",
+      "region": "Africa",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -16.6214,
+        28.2936
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "dubai",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        55.1886,
+        25.0743
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "tokyo",
+      "name": "Tokyo",
+      "country": "Japan",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        139.7639,
+        35.6769
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "tatebayashi",
+      "name": "Tatebayashi",
+      "country": "Japan",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        139.5422,
+        36.2454
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "nagano",
+      "name": "Nagano",
+      "country": "Japan",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        138.1948,
+        36.6486
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "osaka",
+      "name": "Osaka",
+      "country": "Japan",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        135.5015,
+        34.6938
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "ho-chi-minh-city",
+      "name": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        106.7166,
+        10.7737
+      ],
+      "precision": "city"
+    },
+    {
+      "id": "ha-long-bay",
+      "name": "Hạ Long Bay",
+      "country": "Vietnam",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        107.08045,
+        20.90653
+      ],
+      "precision": "place",
+      "note": "Boat trip · December 2019."
+    },
+    {
+      "id": "angkor-wat",
+      "name": "Angkor Wat",
+      "country": "Cambodia",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        103.8666,
+        13.4125
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "siem-reap",
+      "name": "Siem Reap",
+      "country": "Cambodia",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        103.859,
+        13.3618
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "hong-kong",
+      "name": "Hong Kong",
+      "country": "Hong Kong",
+      "region": "Asia",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        114.1858,
+        22.3492
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "niagara-falls",
+      "name": "Niagara Falls",
+      "country": "Canada",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -79.0639,
+        43.1066
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "vancouver",
+      "name": "Vancouver",
+      "country": "Canada",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -123.114,
+        49.2609
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "whistler",
+      "name": "Whistler",
+      "country": "Canada",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -122.9543,
+        50.1172
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "hawaii",
+      "name": "Hawaii",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -155.5,
+        19.6
+      ],
+      "precision": "area",
+      "note": "Representative state pin on the Big Island."
+    },
+    {
+      "id": "california",
+      "name": "California",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -119.5,
+        37.2
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "tennessee",
+      "name": "Tennessee",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -86,
+        35.8
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "louisiana",
+      "name": "Louisiana",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -92,
+        31
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "texas",
+      "name": "Texas",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -98.5456,
+        31.2639
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "florida",
+      "name": "Florida",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -81.7,
+        27.8
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "new-york",
+      "name": "New York",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -75,
+        43
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "nevada",
+      "name": "Nevada",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -116.8537,
+        39.5159
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "utah",
+      "name": "Utah",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -111.7144,
+        39.4225
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "colorado",
+      "name": "Colorado",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -105.6077,
+        38.7252
+      ],
+      "precision": "area"
+    },
+    {
+      "id": "san-salvador",
+      "name": "San Salvador",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -89.1912,
+        13.6976
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "rio-de-janeiro",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -43.2094,
+        -22.911
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "recife",
+      "name": "Recife",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -34.8848,
+        -8.0585
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "trancoso",
+      "name": "Trancoso",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -39.103,
+        -16.5926
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "manaus-amazonia",
+      "name": "Manaus / Amazônia",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -59.9825,
+        -3.1316
+      ],
+      "precision": "area",
+      "note": "Regional pin at Manaus."
+    },
+    {
+      "id": "boa-vista",
+      "name": "Boa Vista",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -60.672,
+        2.8208
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "florianopolis",
+      "name": "Florianópolis",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -48.5496,
+        -27.5973
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "fernando-de-noronha",
+      "name": "Fernando de Noronha",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -32.4111,
+        -3.8422
+      ],
+      "precision": "area",
+      "note": "Island pin near Vila dos Remédios. Individual surf breaks have their own pins."
+    },
+    {
+      "id": "monte-roraima",
+      "name": "Monte Roraima",
+      "country": "Venezuela",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -60.7376,
+        5.2019
+      ],
+      "precision": "place",
+      "note": "10-day hike from the Venezuelan side."
+    },
+    {
+      "id": "punta-del-este",
+      "name": "Punta del Este",
+      "country": "Uruguay",
+      "region": "South America",
+      "categories": [
+        "visited",
+        "surfed"
+      ],
+      "coordinates": [
+        -54.944,
+        -34.9632
+      ],
+      "precision": "city",
+      "note": "Also surfed here. Exact break not specified."
+    },
+    {
+      "id": "jose-ignacio",
+      "name": "José Ignacio",
+      "country": "Uruguay",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -54.6377,
+        -34.8448
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "punta-del-diablo",
+      "name": "Punta del Diablo",
+      "country": "Uruguay",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -53.5398,
+        -34.0449
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "buenos-aires",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "region": "South America",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        -58.3888,
+        -34.6096
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "queenstown",
+      "name": "Queenstown",
+      "country": "New Zealand",
+      "region": "Oceania",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        168.661,
+        -45.0322
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "wanaka",
+      "name": "Wānaka",
+      "country": "New Zealand",
+      "region": "Oceania",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        169.1365,
+        -44.6942
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "milford-sound",
+      "name": "Milford Sound",
+      "country": "New Zealand",
+      "region": "Oceania",
+      "categories": [
+        "visited"
+      ],
+      "coordinates": [
+        167.8688,
+        -44.619
+      ],
+      "precision": "place"
+    },
+    {
+      "id": "sultans",
+      "name": "Sultans",
+      "country": "Maldives",
+      "region": "Asia",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        73.5854,
+        4.3136
+      ],
+      "precision": "break",
+      "area": "North Malé Atoll",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Sultans/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot search",
+          "url": "https://services.surfline.com/search/site?q=Sultans"
+        }
+      ]
+    },
+    {
+      "id": "chickens",
+      "name": "Chickens",
+      "country": "Maldives",
+      "region": "Asia",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        73.6632,
+        4.3729
+      ],
+      "precision": "break",
+      "area": "North Malé Atoll",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Chickens/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot search",
+          "url": "https://services.surfline.com/search/site?q=Chickens"
+        }
+      ]
+    },
+    {
+      "id": "cokes",
+      "name": "Cokes",
+      "country": "Maldives",
+      "region": "Asia",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        73.656,
+        4.3703
+      ],
+      "precision": "break",
+      "area": "North Malé Atoll",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Colas/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot search",
+          "url": "https://services.surfline.com/search/site?q=Cokes"
+        }
+      ]
+    },
+    {
+      "id": "inside-farms",
+      "name": "Inside Farms",
+      "country": "Maldives",
+      "region": "Asia",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        73.1186,
+        2.1945
+      ],
+      "precision": "break",
+      "area": "Thaa Atoll",
+      "sources": [
+        {
+          "label": "Surfline spot search",
+          "url": "https://services.surfline.com/search/site?q=Inside%20Farms"
+        }
+      ]
+    },
+    {
+      "id": "finnimas",
+      "name": "Finnimas",
+      "country": "Maldives",
+      "region": "Asia",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        73.1287,
+        2.1938
+      ],
+      "precision": "break",
+      "area": "Thaa Atoll",
+      "sources": [
+        {
+          "label": "Surfline spot search",
+          "url": "https://services.surfline.com/search/site?q=Finnimas"
+        }
+      ]
+    },
+    {
+      "id": "haleiwa",
+      "name": "Haleʻiwa",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -158.109,
+        21.597
+      ],
+      "precision": "area",
+      "area": "Hawaii",
+      "note": "Haleʻiwa surf area; exact peak not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Haleiwa-Toilet-Bowl/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "gas-chambers",
+      "name": "Gas Chambers",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -158.05,
+        21.668
+      ],
+      "precision": "approximate",
+      "area": "Hawaii",
+      "note": "Surfed close to Gas Chambers; exact spot not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Rocky-Rights-Lefts-Gas-Chambers/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "chuns-reef",
+      "name": "Chun’s Reef",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -158.082,
+        21.624
+      ],
+      "precision": "break",
+      "area": "Hawaii",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Chuns-Reef/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "west-palm-beach",
+      "name": "West Palm Beach",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -80.032,
+        26.705
+      ],
+      "precision": "area",
+      "area": "Florida",
+      "note": "Palm Beach coast near West Palm Beach; exact break not specified."
+    },
+    {
+      "id": "huntington-beach",
+      "name": "Huntington Beach",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -118.0033,
+        33.6548
+      ],
+      "precision": "area",
+      "area": "California",
+      "note": "Representative waterfront pin; exact peak not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Huntington-Beach/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "lower-trestles",
+      "name": "Lower Trestles",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -117.5884,
+        33.3814
+      ],
+      "precision": "break",
+      "area": "California",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Trestles_Lowers/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "ocean-beach",
+      "name": "Ocean Beach",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -122.5101,
+        37.7528
+      ],
+      "precision": "area",
+      "area": "California",
+      "note": "San Francisco. Representative midpoint; exact peak not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Ocean-Beach/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "pleasure-point",
+      "name": "Pleasure Point",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -121.9726,
+        36.9538
+      ],
+      "precision": "area",
+      "area": "California",
+      "note": "Santa Cruz. Exact peak not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Pleasure-Point-First-Peak/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "pacifica",
+      "name": "Pacifica",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -122.503,
+        37.614
+      ],
+      "precision": "area",
+      "area": "California",
+      "note": "Where it began. Exact break not specified."
+    },
+    {
+      "id": "kona",
+      "name": "Kona",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -155.9969,
+        19.6419
+      ],
+      "precision": "area",
+      "area": "Hawaii",
+      "note": "Big Island, Hawaiʻi. Exact break not remembered."
+    },
+    {
+      "id": "county-line",
+      "name": "County Line",
+      "country": "United States",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -118.964,
+        34.051
+      ],
+      "precision": "break",
+      "area": "California",
+      "note": "Malibu area.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/County-Line-Yerba-Buena-Beach/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "cabo-san-lucas",
+      "name": "Cabo San Lucas",
+      "country": "Mexico",
+      "region": "North America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -109.9201,
+        22.8939
+      ],
+      "precision": "area",
+      "note": "Exact break not specified."
+    },
+    {
+      "id": "km59",
+      "name": "KM59",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -89.473,
+        13.498
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Kilometer59and61/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=12.9&west=-90.3&north=13.8&east=-87.5"
+        }
+      ]
+    },
+    {
+      "id": "el-sunzal",
+      "name": "El Sunzal",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -89.39,
+        13.4917
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/El-Zunzal/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=12.9&west=-90.3&north=13.8&east=-87.5"
+        }
+      ]
+    },
+    {
+      "id": "playa-las-flores",
+      "name": "Playa Las Flores",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -88.118,
+        13.1677
+      ],
+      "precision": "break",
+      "note": "Eastern Las Flores near El Cuco.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Las-Flores/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=12.9&west=-90.3&north=13.8&east=-87.5"
+        }
+      ]
+    },
+    {
+      "id": "el-toro",
+      "name": "El Toro",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -88.1321,
+        13.1662
+      ],
+      "precision": "break"
+    },
+    {
+      "id": "punta-mango",
+      "name": "Punta Mango",
+      "country": "El Salvador",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -88.19,
+        13.164
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Punta-Mango/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=12.9&west=-90.3&north=13.8&east=-87.5"
+        }
+      ]
+    },
+    {
+      "id": "pavones",
+      "name": "Pavones",
+      "country": "Costa Rica",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -83.1395,
+        8.3949
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Pavones/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=8.0&west=-83.9&north=8.8&east=-82.8"
+        }
+      ]
+    },
+    {
+      "id": "santa-teresa",
+      "name": "Santa Teresa",
+      "country": "Costa Rica",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -85.1704,
+        9.6438
+      ],
+      "precision": "area",
+      "note": "Representative beach pin; exact peak not specified.",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Playa-Santa-Teresa/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "playa-hermosa",
+      "name": "Playa Hermosa",
+      "country": "Costa Rica",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -85.1926,
+        9.6656
+      ],
+      "precision": "break",
+      "note": "Just north of Santa Teresa, not the Playa Hermosa near Jacó.",
+      "sources": [
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=9.4&west=-85.4&north=9.8&east=-84.5"
+        }
+      ]
+    },
+    {
+      "id": "matapalo",
+      "name": "Matapalo",
+      "country": "Costa Rica",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -83.2833,
+        8.3823
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Cabo-Matapalo/forecasts/latest"
+        },
+        {
+          "label": "Surfline spot coordinates",
+          "url": "https://services.surfline.com/kbyg/mapview?south=8.0&west=-83.9&north=8.8&east=-82.8"
+        }
+      ]
+    },
+    {
+      "id": "malpaso",
+      "name": "Malpaso",
+      "country": "Costa Rica",
+      "region": "Central America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -83.273,
+        8.409
+      ],
+      "precision": "approximate",
+      "note": "Right reef point across Golfo Dulce from Pavones, on the Osa side. Area pin only; exact reef unverified."
+    },
+    {
+      "id": "praia-do-rosa",
+      "name": "Praia do Rosa",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -48.6415,
+        -28.1303
+      ],
+      "precision": "break",
+      "area": "Santa Catarina",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Rosa/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "camburi",
+      "name": "Camburi",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.649,
+        -23.7791
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Camburi/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "baleia",
+      "name": "Baleia",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.6662,
+        -23.7768
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Praiada-Baleia/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "maresias",
+      "name": "Maresias",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.5598,
+        -23.7937
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Maresias/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "itamambuca",
+      "name": "Itamambuca",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.0087,
+        -23.4067
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Itamambuca/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "praia-vermelha-do-norte",
+      "name": "Praia Vermelha do Norte",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.0356,
+        -23.4163
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Praia-Vermelhado-Norte/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "barra-do-sahy",
+      "name": "Barra do Sahy",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -45.6976,
+        -23.7744
+      ],
+      "precision": "break",
+      "area": "São Paulo coast",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Barrado-Sahy/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "boldro",
+      "name": "Boldró",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -32.4312,
+        -3.8458
+      ],
+      "precision": "break",
+      "area": "Fernando de Noronha",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Boldro/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "cacimba-do-padre",
+      "name": "Caçimba do Padre",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -32.4396,
+        -3.8497
+      ],
+      "precision": "break",
+      "area": "Fernando de Noronha",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Cacimbado-Padre/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "praia-da-conceicao",
+      "name": "Praia da Conceição",
+      "country": "Brazil",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -32.4219,
+        -3.843
+      ],
+      "precision": "break",
+      "area": "Fernando de Noronha",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Conceicao/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "la-moza",
+      "name": "La Moza",
+      "country": "Uruguay",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -53.5293,
+        -33.9751
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/La-Moza/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "lima",
+      "name": "Lima",
+      "country": "Peru",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -77.041,
+        -12.132
+      ],
+      "precision": "area",
+      "note": "Representative coastal pin near Miraflores; exact break not specified."
+    },
+    {
+      "id": "lobitos",
+      "name": "Lobitos",
+      "country": "Peru",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -81.287,
+        -4.4515
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Lobitos/forecasts/latest"
+        }
+      ]
+    },
+    {
+      "id": "piscinas",
+      "name": "Piscinas",
+      "country": "Peru",
+      "region": "South America",
+      "categories": [
+        "surfed"
+      ],
+      "coordinates": [
+        -81.2758,
+        -4.4455
+      ],
+      "precision": "break",
+      "sources": [
+        {
+          "label": "Surf-Forecast",
+          "url": "https://www.surf-forecast.com/breaks/Piscinas/forecasts/latest"
+        }
+      ]
+    }
+  ]
+}

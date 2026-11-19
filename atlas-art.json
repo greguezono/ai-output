@@ -1,0 +1,2361 @@
+{
+ "schemaVersion": 1,
+ "groups": [
+  {
+   "id": "hawaii-surf",
+   "title": "Hawaiʻi",
+   "places": [
+    "haleiwa",
+    "gas-chambers",
+    "chuns-reef",
+    "kona"
+   ],
+   "offset": [
+    -52,
+    27
+   ],
+   "align": "left"
+  },
+  {
+   "id": "california-surf",
+   "title": "California & Baja",
+   "places": [
+    "ocean-beach",
+    "pacifica",
+    "pleasure-point",
+    "county-line",
+    "huntington-beach",
+    "lower-trestles",
+    "cabo-san-lucas"
+   ],
+   "offset": [
+    -42,
+    -43
+   ],
+   "align": "right"
+  },
+  {
+   "id": "florida-surf",
+   "title": "Florida",
+   "places": [
+    "west-palm-beach"
+   ],
+   "offset": [
+    37,
+    -11
+   ],
+   "align": "left"
+  },
+  {
+   "id": "el-salvador-surf",
+   "title": "El Salvador",
+   "places": [
+    "km59",
+    "el-sunzal",
+    "playa-las-flores",
+    "el-toro",
+    "punta-mango"
+   ],
+   "offset": [
+    -64,
+    -3
+   ],
+   "align": "right"
+  },
+  {
+   "id": "costa-rica-surf",
+   "title": "Costa Rica",
+   "places": [
+    "santa-teresa",
+    "playa-hermosa",
+    "pavones",
+    "matapalo",
+    "malpaso"
+   ],
+   "offset": [
+    -83,
+    62
+   ],
+   "align": "right"
+  },
+  {
+   "id": "peru-surf",
+   "title": "Peru",
+   "places": [
+    "lobitos",
+    "piscinas",
+    "lima"
+   ],
+   "offset": [
+    -100,
+    87
+   ],
+   "align": "right"
+  },
+  {
+   "id": "noronha-surf",
+   "title": "Fernando de Noronha",
+   "places": [
+    "boldro",
+    "cacimba-do-padre",
+    "praia-da-conceicao"
+   ],
+   "offset": [
+    22,
+    -28
+   ],
+   "align": "left"
+  },
+  {
+   "id": "sao-paulo-surf",
+   "title": "São Paulo & Santa Catarina",
+   "places": [
+    "maresias",
+    "camburi",
+    "baleia",
+    "barra-do-sahy",
+    "itamambuca",
+    "praia-vermelha-do-norte",
+    "praia-do-rosa"
+   ],
+   "offset": [
+    55,
+    2
+   ],
+   "align": "left"
+  },
+  {
+   "id": "uruguay-surf",
+   "title": "Uruguay",
+   "places": [
+    "punta-del-este",
+    "la-moza"
+   ],
+   "offset": [
+    30,
+    57
+   ],
+   "align": "left"
+  },
+  {
+   "id": "maldives-surf",
+   "title": "Maldives",
+   "places": [
+    "sultans",
+    "chickens",
+    "cokes",
+    "inside-farms",
+    "finnimas"
+   ],
+   "offset": [
+    -22,
+    -27
+   ],
+   "align": "right"
+  },
+  {
+   "id": "south-florida",
+   "title": "South Florida",
+   "list": false,
+   "places": [
+    "plantation",
+    "boca-raton"
+   ]
+  },
+  {
+   "id": "puglia",
+   "title": "Puglia & Basilicata",
+   "list": false,
+   "places": [
+    "alberobello",
+    "matera",
+    "polignano-a-mare",
+    "santa-maria-di-leuca",
+    "otranto",
+    "castro"
+   ]
+  },
+  {
+   "id": "provence",
+   "title": "Provence & Riviera",
+   "list": false,
+   "places": [
+    "chateauneuf-du-pape",
+    "orange",
+    "les-baux-de-provence",
+    "cote-d-azur"
+   ]
+  },
+  {
+   "id": "alps",
+   "title": "Mont Blanc & Verbier",
+   "list": false,
+   "places": [
+    "chamonix",
+    "verbier"
+   ]
+  },
+  {
+   "id": "greece-south",
+   "title": "Greece",
+   "list": false,
+   "places": [
+    "athens",
+    "monemvasia",
+    "mykonos",
+    "syros"
+   ]
+  },
+  {
+   "id": "dalmatia",
+   "title": "Dalmatia & Kotor",
+   "list": false,
+   "places": [
+    "dubrovnik",
+    "kotor",
+    "split",
+    "hvar"
+   ]
+  },
+  {
+   "id": "angkor",
+   "title": "Angkor",
+   "list": false,
+   "places": [
+    "angkor-wat",
+    "siem-reap"
+   ]
+  },
+  {
+   "id": "rome-area",
+   "title": "Rome & Tuscany",
+   "list": false,
+   "places": [
+    "rome",
+    "vatican-city",
+    "montepulciano"
+   ]
+  },
+  {
+   "id": "balearics",
+   "title": "Balearics",
+   "list": false,
+   "places": [
+    "mallorca",
+    "ibiza"
+   ]
+  },
+  {
+   "id": "vancouver-whistler",
+   "title": "Vancouver & Whistler",
+   "list": false,
+   "places": [
+    "vancouver",
+    "whistler"
+   ]
+  },
+  {
+   "id": "nz-southern-alps",
+   "title": "Southern Alps",
+   "list": false,
+   "places": [
+    "queenstown",
+    "wanaka",
+    "milford-sound"
+   ]
+  },
+  {
+   "id": "japan-kanto",
+   "title": "Kantō",
+   "list": false,
+   "places": [
+    "tokyo",
+    "tatebayashi"
+   ]
+  },
+  {
+   "id": "bay-area",
+   "title": "Bay Area",
+   "list": false,
+   "places": [
+    "san-francisco",
+    "berkeley",
+    "oakland"
+   ]
+  }
+ ],
+ "stickers": [
+  {
+   "icon": "golden-gate",
+   "place": "san-francisco",
+   "label": "Golden Gate Bridge",
+   "width": 96,
+   "offset": [
+    18,
+    -17
+   ],
+   "at": [
+    -122.4783,
+    37.8199
+   ],
+   "maxScale": 2.2,
+   "anchor": [
+    0.5,
+    0.76
+   ]
+  },
+  {
+   "icon": "statue-of-liberty",
+   "place": "brooklyn",
+   "label": "Statue of Liberty",
+   "width": 30,
+   "offset": [
+    -18,
+    -4
+   ],
+   "maxScale": 2.4,
+   "anchor": [
+    1,
+    1
+   ],
+   "sideBy": true
+  },
+  {
+   "icon": "christ-the-redeemer",
+   "place": "rio-de-janeiro",
+   "label": "Christ the Redeemer",
+   "width": 44,
+   "offset": [
+    -26,
+    -24
+   ],
+   "at": [
+    -43.2105,
+    -22.9519
+   ],
+   "maxScale": 2,
+   "anchor": [
+    0.5,
+    0.56
+   ]
+  },
+  {
+   "icon": "eiffel-tower",
+   "place": "paris",
+   "label": "Eiffel Tower",
+   "width": 26,
+   "offset": [
+    -6,
+    9
+   ],
+   "at": [
+    2.2945,
+    48.8584
+   ],
+   "maxScale": 3.5,
+   "anchor": [
+    0.5,
+    1
+   ]
+  },
+  {
+   "icon": "colosseum",
+   "label": "Colosseum",
+   "width": 42,
+   "offset": [
+    8,
+    1
+   ],
+   "at": [
+    12.4922,
+    41.8902
+   ],
+   "maxScale": 3,
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "group": "rome-area"
+  },
+  {
+   "icon": "mount-fuji",
+   "label": "Mount Fuji",
+   "width": 58,
+   "offset": [
+    -1,
+    -20
+   ],
+   "at": [
+    138.7274,
+    35.3606
+   ],
+   "maxScale": 3,
+   "anchor": [
+    0.48,
+    0.75
+   ],
+   "group": "japan-kanto"
+  },
+  {
+   "icon": "balloons",
+   "place": "cappadocia",
+   "label": "Balloons over Cappadocia",
+   "width": 46,
+   "offset": [
+    9,
+    -13
+   ],
+   "at": [
+    34.8296,
+    38.6431
+   ],
+   "maxScale": 3,
+   "anchor": [
+    0.5,
+    0.85
+   ]
+  },
+  {
+   "icon": "zaa-queen",
+   "group": "maldives-surf",
+   "label": "Zaa Queen surf charter",
+   "width": 78,
+   "offset": [
+    6,
+    4
+   ],
+   "maxScale": 1.8,
+   "anchor": [
+    0.02,
+    0.85
+   ],
+   "at": [
+    73.9,
+    3.6
+   ]
+  },
+  {
+   "icon": "ibirapuera",
+   "place": "sao-paulo",
+   "label": "Ibirapuera Park",
+   "width": 54,
+   "offset": [
+    -30,
+    -4
+   ],
+   "at": [
+    -46.6576,
+    -23.5874
+   ],
+   "maxScale": 1.5,
+   "anchor": [
+    0.92,
+    0.85
+   ]
+  },
+  {
+   "icon": "camburi-beach",
+   "group": "sao-paulo-surf",
+   "label": "Camburi beach",
+   "width": 56,
+   "offset": [
+    4,
+    26
+   ],
+   "at": [
+    -45.649,
+    -23.7791
+   ],
+   "maxScale": 1.5,
+   "anchor": [
+    0.35,
+    0.05
+   ]
+  },
+  {
+   "icon": "san-jacinto-tramway",
+   "place": "palm-desert",
+   "label": "San Jacinto & the Aerial Tramway",
+   "width": 50,
+   "offset": [
+    22,
+    -20
+   ],
+   "anchor": [
+    0,
+    1
+   ],
+   "maxScale": 1.6,
+   "sideBy": true
+  },
+  {
+   "icon": "old-north-church",
+   "place": "boston",
+   "label": "Old North Church",
+   "width": 22,
+   "offset": [
+    -22,
+    -6
+   ],
+   "anchor": [
+    1,
+    1
+   ],
+   "maxScale": 2.2,
+   "sideBy": true
+  },
+  {
+   "icon": "everglades-airboat",
+   "group": "south-florida",
+   "label": "Everglades airboat",
+   "width": 46,
+   "offset": [
+    -40,
+    6
+   ],
+   "anchor": [
+    1,
+    0.85
+   ],
+   "maxScale": 1.6,
+   "sideBy": true
+  },
+  {
+   "icon": "memphis-pyramid",
+   "place": "memphis",
+   "label": "Memphis Pyramid",
+   "width": 38,
+   "offset": [
+    -34,
+    2
+   ],
+   "anchor": [
+    1,
+    1
+   ],
+   "maxScale": 1.6,
+   "sideBy": true
+  },
+  {
+   "icon": "texas-street-bridge",
+   "place": "shreveport",
+   "label": "Texas Street Bridge",
+   "width": 42,
+   "offset": [
+    -34,
+    10
+   ],
+   "anchor": [
+    1,
+    1
+   ],
+   "maxScale": 1.6,
+   "sideBy": true
+  },
+  {
+   "icon": "sunshine-skyway",
+   "place": "bradenton",
+   "label": "Sunshine Skyway",
+   "width": 50,
+   "offset": [
+    -40,
+    4
+   ],
+   "anchor": [
+    1,
+    1
+   ],
+   "maxScale": 1.6,
+   "sideBy": true
+  },
+  {
+   "icon": "sather-tower",
+   "place": "berkeley",
+   "label": "Sather Tower (the Campanile)",
+   "width": 22,
+   "minZoom": 6,
+   "offset": [
+    -24,
+    -8
+   ],
+   "anchor": [
+    1,
+    1
+   ],
+   "maxScale": 2.2,
+   "sideBy": true,
+   "alsoPlaces": [
+    "oakland"
+   ]
+  },
+  {
+   "icon": "pipeline-barrel",
+   "group": "hawaii-surf",
+   "label": "Banzai Pipeline",
+   "width": 46,
+   "offset": [
+    30,
+    -30
+   ],
+   "at": [
+    -158.05,
+    21.665
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 1.8
+  },
+  {
+   "icon": "huntington-pier-surf",
+   "group": "california-surf",
+   "label": "Huntington Beach Pier",
+   "width": 50,
+   "offset": [
+    -10,
+    34
+   ],
+   "at": [
+    -118.005,
+    33.655
+   ],
+   "anchor": [
+    0.3,
+    0.6
+   ],
+   "maxScale": 1.6
+  },
+  {
+   "icon": "pleasure-point-surf",
+   "place": "pleasure-point",
+   "label": "Pleasure Point",
+   "width": 40,
+   "minZoom": 6.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -121.97,
+    36.955
+   ],
+   "anchor": [
+    0.75,
+    0.7
+   ],
+   "maxScale": 1.6
+  },
+  {
+   "icon": "pacifica-surf",
+   "place": "pacifica",
+   "label": "Pacifica · Linda Mar",
+   "width": 38,
+   "minZoom": 6.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -122.5,
+    37.6
+   ],
+   "anchor": [
+    0.85,
+    0.7
+   ],
+   "maxScale": 1.6
+  },
+  {
+   "icon": "el-tunco-rock",
+   "group": "el-salvador-surf",
+   "label": "El Tunco rock",
+   "width": 48,
+   "offset": [
+    16,
+    30
+   ],
+   "at": [
+    -89.383,
+    13.49
+   ],
+   "anchor": [
+    0.5,
+    0.6
+   ],
+   "maxScale": 1.7
+  },
+  {
+   "icon": "santa-teresa-whale-tail",
+   "group": "costa-rica-surf",
+   "label": "Santa Teresa humpback",
+   "width": 46,
+   "offset": [
+    18,
+    -26
+   ],
+   "at": [
+    -85.17,
+    9.645
+   ],
+   "anchor": [
+    0.5,
+    0.7
+   ],
+   "maxScale": 1.7
+  },
+  {
+   "icon": "morro-do-pico",
+   "group": "noronha-surf",
+   "alsoPlaces": [
+    "fernando-de-noronha"
+   ],
+   "label": "Morro do Pico",
+   "width": 34,
+   "offset": [
+    -28,
+    -16
+   ],
+   "at": [
+    -32.425,
+    -3.839
+   ],
+   "anchor": [
+    0.5,
+    0.88
+   ],
+   "maxScale": 2
+  },
+  {
+   "icon": "punta-windy-beach",
+   "group": "uruguay-surf",
+   "label": "Windy Playa Brava, Punta del Este",
+   "width": 44,
+   "offset": [
+    46,
+    30
+   ],
+   "at": [
+    -54.93,
+    -34.955
+   ],
+   "anchor": [
+    0.5,
+    0.7
+   ],
+   "maxScale": 1.7
+  },
+  {
+   "icon": "lobitos-sea-lion",
+   "place": "lobitos",
+   "alsoPlaces": [
+    "piscinas"
+   ],
+   "label": "Lobitos",
+   "width": 40,
+   "offset": [
+    -30,
+    -14
+   ],
+   "at": [
+    -81.285,
+    -4.452
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 1.7
+  },
+  {
+   "icon": "alberobello-trulli",
+   "group": "puglia",
+   "label": "Trulli of Alberobello",
+   "width": 40,
+   "offset": [
+    14,
+    -14
+   ],
+   "at": [
+    17.2377,
+    40.7841
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "matera-sassi",
+   "place": "matera",
+   "label": "Sassi di Matera",
+   "width": 46,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    16.6114,
+    40.6664
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "chateauneuf-wine",
+   "group": "provence",
+   "label": "Châteauneuf-du-Pape wine",
+   "width": 40,
+   "offset": [
+    -30,
+    16
+   ],
+   "at": [
+    4.8317,
+    44.056
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "mont-blanc",
+   "group": "alps",
+   "label": "Mont Blanc",
+   "width": 40,
+   "offset": [
+    8,
+    -26
+   ],
+   "at": [
+    6.8652,
+    45.8326
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "matterhorn",
+   "place": "verbier",
+   "label": "Matterhorn",
+   "width": 32,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    7.6586,
+    45.9763
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "angkor-wat",
+   "group": "angkor",
+   "label": "Angkor Wat",
+   "width": 52,
+   "offset": [
+    -30,
+    10
+   ],
+   "at": [
+    103.867,
+    13.4125
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "ha-long-karsts",
+   "place": "ha-long-bay",
+   "label": "Hạ Long Bay",
+   "width": 50,
+   "offset": [
+    40,
+    16
+   ],
+   "at": [
+    107.08,
+    20.91
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "hagia-sophia",
+   "place": "istanbul",
+   "label": "Hagia Sophia",
+   "width": 46,
+   "offset": [
+    -20,
+    -22
+   ],
+   "at": [
+    28.98,
+    41.0086
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "burj-khalifa",
+   "place": "dubai",
+   "label": "Burj Khalifa",
+   "width": 20,
+   "offset": [
+    -14,
+    -6
+   ],
+   "at": [
+    55.2744,
+    25.1972
+   ],
+   "anchor": [
+    0.5,
+    0.97
+   ],
+   "maxScale": 2.6
+  },
+  {
+   "icon": "table-mountain",
+   "place": "cape-town",
+   "label": "Table Mountain",
+   "width": 56,
+   "offset": [
+    -30,
+    8
+   ],
+   "at": [
+    18.4039,
+    -33.9628
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "parthenon",
+   "group": "greece-south",
+   "label": "Parthenon",
+   "width": 40,
+   "offset": [
+    -24,
+    14
+   ],
+   "at": [
+    23.7265,
+    37.9715
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "dubrovnik-walls",
+   "group": "dalmatia",
+   "label": "Dubrovnik city walls",
+   "width": 44,
+   "offset": [
+    -34,
+    26
+   ],
+   "at": [
+    18.1094,
+    42.6407
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "big-ben",
+   "place": "london",
+   "label": "Big Ben",
+   "width": 20,
+   "offset": [
+    -14,
+    -8
+   ],
+   "at": [
+    -0.1246,
+    51.5007
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "brandenburg-gate",
+   "place": "berlin",
+   "label": "Brandenburg Gate",
+   "width": 36,
+   "offset": [
+    18,
+    -6
+   ],
+   "at": [
+    13.3777,
+    52.5163
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "sagrada-familia",
+   "place": "barcelona",
+   "label": "Sagrada Família",
+   "width": 26,
+   "offset": [
+    -16,
+    -10
+   ],
+   "at": [
+    2.1744,
+    41.4036
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "milan-duomo",
+   "place": "milan",
+   "label": "Duomo di Milano",
+   "width": 34,
+   "offset": [
+    -20,
+    -6
+   ],
+   "at": [
+    9.1919,
+    45.4641
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "munich-frauenkirche",
+   "place": "munich",
+   "label": "Frauenkirche",
+   "width": 22,
+   "offset": [
+    16,
+    -6
+   ],
+   "at": [
+    11.5736,
+    48.1386
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "amsterdam-canal-houses",
+   "place": "amsterdam",
+   "label": "Canal houses",
+   "width": 34,
+   "offset": [
+    16,
+    -14
+   ],
+   "at": [
+    4.8897,
+    52.37
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "osaka-castle",
+   "place": "osaka",
+   "label": "Osaka Castle",
+   "width": 30,
+   "offset": [
+    -14,
+    10
+   ],
+   "at": [
+    135.5258,
+    34.6873
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "hong-kong-harbour",
+   "place": "hong-kong",
+   "label": "Victoria Harbour",
+   "width": 42,
+   "offset": [
+    24,
+    8
+   ],
+   "at": [
+    114.17,
+    22.29
+   ],
+   "anchor": [
+    0.5,
+    0.7
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "hcmc-notre-dame",
+   "place": "ho-chi-minh-city",
+   "label": "Notre-Dame Cathedral, Saigon",
+   "width": 22,
+   "offset": [
+    16,
+    -6
+   ],
+   "at": [
+    106.699,
+    10.7798
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "obelisco",
+   "place": "buenos-aires",
+   "label": "Obelisco",
+   "width": 16,
+   "offset": [
+    -12,
+    -6
+   ],
+   "at": [
+    -58.3816,
+    -34.6037
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "koutoubia-minaret",
+   "place": "marrakech",
+   "label": "Koutoubia",
+   "width": 18,
+   "offset": [
+    -14,
+    8
+   ],
+   "at": [
+    -7.9933,
+    31.6237
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "hassan-ii-mosque",
+   "place": "casablanca",
+   "label": "Hassan II Mosque",
+   "width": 32,
+   "offset": [
+    -22,
+    -12
+   ],
+   "at": [
+    -7.6328,
+    33.6083
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "ponte-city",
+   "place": "johannesburg",
+   "label": "Ponte City",
+   "width": 18,
+   "offset": [
+    -14,
+    -4
+   ],
+   "at": [
+    28.0567,
+    -26.1909
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "kruger-baobab-elephant",
+   "place": "kruger-national-park",
+   "label": "Kruger",
+   "width": 40,
+   "offset": [
+    22,
+    4
+   ],
+   "at": [
+    31.5,
+    -24.0
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "teide-volcano",
+   "place": "canary-islands",
+   "label": "Teide",
+   "width": 38,
+   "offset": [
+    -14,
+    -8
+   ],
+   "at": [
+    -16.6425,
+    28.2724
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "monte-roraima",
+   "place": "monte-roraima",
+   "label": "Monte Roraima",
+   "width": 46,
+   "offset": [
+    24,
+    -10
+   ],
+   "at": [
+    -60.7627,
+    5.1433
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "meeting-of-waters",
+   "place": "manaus-amazonia",
+   "label": "Meeting of the Waters",
+   "width": 42,
+   "offset": [
+    10,
+    22
+   ],
+   "at": [
+    -59.89,
+    -3.14
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "recife-marco-zero",
+   "place": "recife",
+   "label": "Recife Antigo",
+   "width": 30,
+   "offset": [
+    22,
+    0
+   ],
+   "at": [
+    -34.871,
+    -8.062
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "trancoso-quadrado",
+   "place": "trancoso",
+   "label": "Quadrado, Trancoso",
+   "width": 38,
+   "offset": [
+    26,
+    0
+   ],
+   "at": [
+    -39.0975,
+    -16.5905
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "niagara-horseshoe-falls",
+   "place": "niagara-falls",
+   "label": "Niagara Falls",
+   "width": 36,
+   "offset": [
+    -30,
+    -14
+   ],
+   "at": [
+    -79.0742,
+    43.0779
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.2,
+   "alsoPlaces": [
+    "new-york"
+   ]
+  },
+  {
+   "icon": "kilauea-eruption",
+   "place": "hawaii",
+   "label": "Kīlauea",
+   "width": 32,
+   "offset": [
+    22,
+    10
+   ],
+   "at": [
+    -155.2867,
+    19.4069
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "half-dome",
+   "place": "california",
+   "label": "Half Dome",
+   "width": 30,
+   "offset": [
+    0,
+    -12
+   ],
+   "at": [
+    -119.5332,
+    37.7459
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "smoky-mountains",
+   "place": "tennessee",
+   "label": "Great Smoky Mountains",
+   "width": 36,
+   "offset": [
+    10,
+    -8
+   ],
+   "at": [
+    -83.5,
+    35.6
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "st-louis-cathedral",
+   "place": "louisiana",
+   "label": "St. Louis Cathedral",
+   "width": 26,
+   "offset": [
+    0,
+    6
+   ],
+   "at": [
+    -90.0637,
+    29.9576
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "the-alamo",
+   "place": "texas",
+   "label": "The Alamo",
+   "width": 30,
+   "offset": [
+    0,
+    4
+   ],
+   "at": [
+    -98.4861,
+    29.426
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "cape-canaveral-rocket",
+   "place": "florida",
+   "label": "Cape Canaveral",
+   "width": 18,
+   "offset": [
+    12,
+    -8
+   ],
+   "at": [
+    -80.6041,
+    28.6082
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "las-vegas-sign",
+   "place": "nevada",
+   "label": "Las Vegas sign",
+   "width": 18,
+   "offset": [
+    0,
+    -6
+   ],
+   "at": [
+    -115.1728,
+    36.082
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "delicate-arch",
+   "place": "utah",
+   "label": "Delicate Arch",
+   "width": 28,
+   "offset": [
+    0,
+    -6
+   ],
+   "at": [
+    -109.4993,
+    38.7436
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "maroon-bells",
+   "place": "colorado",
+   "label": "Maroon Bells",
+   "width": 34,
+   "offset": [
+    0,
+    -6
+   ],
+   "at": [
+    -106.989,
+    39.0708
+   ],
+   "anchor": [
+    0.5,
+    0.65
+   ],
+   "maxScale": 2.2,
+   "minZoom": 3.6
+  },
+  {
+   "icon": "polignano-cliff-cove",
+   "place": "polignano-a-mare",
+   "label": "Lama Monachile, Polignano",
+   "width": 36,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    17.2195,
+    40.996
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "leuca-lighthouse",
+   "place": "santa-maria-di-leuca",
+   "label": "Leuca lighthouse",
+   "width": 20,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    18.359,
+    39.797
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "otranto-castle",
+   "place": "otranto",
+   "label": "Otranto castle",
+   "width": 34,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    18.491,
+    40.145
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "castro-zinzulusa-cave",
+   "place": "castro",
+   "label": "Zinzulusa cave",
+   "width": 34,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    18.429,
+    40.004
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "les-baux-rock-castle",
+   "place": "les-baux-de-provence",
+   "label": "Les Baux castle",
+   "width": 34,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    4.7944,
+    43.7444
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "orange-roman-theatre",
+   "place": "orange",
+   "label": "Roman theatre of Orange",
+   "width": 32,
+   "minZoom": 8,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    4.8086,
+    44.136
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "esterel-red-rocks",
+   "place": "cote-d-azur",
+   "label": "Esterel red rocks",
+   "width": 38,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    6.86,
+    43.43
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "st-peters-dome",
+   "place": "vatican-city",
+   "label": "St Peter's",
+   "width": 28,
+   "minZoom": 9,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    12.4534,
+    41.9022
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "montepulciano-hilltown",
+   "place": "montepulciano",
+   "label": "Montepulciano",
+   "width": 36,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    11.7827,
+    43.0945
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "mykonos-windmills",
+   "place": "mykonos",
+   "label": "Kato Mili windmills",
+   "width": 34,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    25.327,
+    37.444
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "ano-syros-hill",
+   "place": "syros",
+   "label": "Ano Syros",
+   "width": 30,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    24.937,
+    37.45
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "monemvasia-rock",
+   "place": "monemvasia",
+   "label": "Monemvasia",
+   "width": 36,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    23.058,
+    36.687
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "white-tower",
+   "place": "thessaloniki",
+   "label": "White Tower",
+   "width": 18,
+   "offset": [
+    14,
+    -6
+   ],
+   "at": [
+    22.9484,
+    40.6264
+   ],
+   "anchor": [
+    0.5,
+    0.92
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "kotor-fortress",
+   "place": "kotor",
+   "label": "Kotor walls",
+   "width": 32,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    18.774,
+    42.425
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "split-bell-tower",
+   "place": "split",
+   "label": "St Domnius bell tower",
+   "width": 20,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    16.4402,
+    43.5081
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "hvar-fortica",
+   "place": "hvar",
+   "label": "Fortica, Hvar",
+   "width": 34,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    16.44,
+    43.175
+   ],
+   "anchor": [
+    0.5,
+    0.85
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "vlore-independence-monument",
+   "place": "vlore",
+   "label": "Independence Monument",
+   "width": 18,
+   "offset": [
+    16,
+    -4
+   ],
+   "at": [
+    19.489,
+    40.468
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "zenkoji-temple",
+   "place": "nagano",
+   "label": "Zenkō-ji",
+   "width": 32,
+   "offset": [
+    -22,
+    -8
+   ],
+   "at": [
+    138.1873,
+    36.6614
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "mitre-peak",
+   "group": "nz-southern-alps",
+   "label": "Mitre Peak, Milford Sound",
+   "width": 42,
+   "offset": [
+    -26,
+    -6
+   ],
+   "at": [
+    167.85,
+    -44.64
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.4
+  },
+  {
+   "icon": "palma-la-seu",
+   "group": "balearics",
+   "label": "La Seu, Palma",
+   "width": 34,
+   "offset": [
+    14,
+    14
+   ],
+   "at": [
+    2.6484,
+    39.5675
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "es-vedra",
+   "place": "ibiza",
+   "label": "Es Vedrà",
+   "width": 28,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    1.205,
+    38.868
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "canada-place-sails",
+   "group": "vancouver-whistler",
+   "label": "Canada Place",
+   "width": 32,
+   "offset": [
+    -22,
+    8
+   ],
+   "at": [
+    -123.1116,
+    49.2888
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "peak-2-peak-gondola",
+   "place": "whistler",
+   "label": "Peak 2 Peak Gondola",
+   "width": 34,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -122.95,
+    50.07
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.0
+  },
+  {
+   "icon": "salvador-del-mundo",
+   "place": "san-salvador",
+   "label": "Salvador del Mundo",
+   "width": 14,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -89.2244,
+    13.701
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "ponte-hercilio-luz",
+   "place": "florianopolis",
+   "label": "Hercílio Luz Bridge",
+   "width": 36,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -48.565,
+    -27.594
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "faro-jose-ignacio",
+   "place": "jose-ignacio",
+   "label": "José Ignacio lighthouse",
+   "width": 14,
+   "minZoom": 6.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -54.634,
+    -34.845
+   ],
+   "anchor": [
+    0.5,
+    0.95
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "diablo-boats",
+   "place": "punta-del-diablo",
+   "label": "Punta del Diablo boats",
+   "width": 30,
+   "minZoom": 6.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -53.54,
+    -34.047
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "kona-manta-ray",
+   "label": "Kona manta rays",
+   "width": 30,
+   "minZoom": 5.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -155.99,
+    19.56
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "maxScale": 2.0,
+   "place": "kona"
+  },
+  {
+   "icon": "county-line-kelp",
+   "label": "County Line kelp",
+   "width": 18,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -118.97,
+    34.04
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "maxScale": 2.0,
+   "place": "county-line"
+  },
+  {
+   "icon": "trestles-cobble-point",
+   "label": "Trestles cobblestones",
+   "width": 34,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -117.59,
+    33.38
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "place": "lower-trestles"
+  },
+  {
+   "icon": "seal-rocks",
+   "label": "Seal Rocks",
+   "width": 30,
+   "minZoom": 7,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -122.515,
+    37.778
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "place": "ocean-beach"
+  },
+  {
+   "icon": "loggerhead-turtle",
+   "label": "Loggerhead turtle",
+   "width": 24,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -80.0,
+    26.72
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "maxScale": 2.0,
+   "place": "west-palm-beach"
+  },
+  {
+   "icon": "el-arco-cabo",
+   "place": "cabo-san-lucas",
+   "label": "El Arco",
+   "width": 30,
+   "offset": [
+    18,
+    8
+   ],
+   "at": [
+    -109.892,
+    22.875
+   ],
+   "anchor": [
+    0.5,
+    0.9
+   ],
+   "maxScale": 2.2
+  },
+  {
+   "icon": "punta-mango-point",
+   "label": "Punta Mango",
+   "width": 34,
+   "minZoom": 5.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -88.19,
+    13.16
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "alsoPlaces": [
+    "el-toro",
+    "playa-las-flores"
+   ],
+   "place": "punta-mango"
+  },
+  {
+   "icon": "golfo-dulce-whale-tail",
+   "label": "Golfo Dulce humpback",
+   "width": 32,
+   "minZoom": 5.5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -83.14,
+    8.39
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "alsoPlaces": [
+    "matapalo",
+    "malpaso"
+   ],
+   "place": "pavones"
+  },
+  {
+   "icon": "lima-costa-verde",
+   "label": "Costa Verde cliffs",
+   "width": 34,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -77.04,
+    -12.12
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "place": "lima"
+  },
+  {
+   "icon": "baleia-franca",
+   "label": "Southern right whale",
+   "width": 32,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -48.62,
+    -28.13
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "maxScale": 2.0,
+   "place": "praia-do-rosa"
+  },
+  {
+   "icon": "cabo-polonio-sea-lions",
+   "label": "Cabo Polonio",
+   "width": 34,
+   "minZoom": 6,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -53.78,
+    -34.4
+   ],
+   "anchor": [
+    0.5,
+    0.8
+   ],
+   "maxScale": 2.0,
+   "place": "la-moza"
+  },
+  {
+   "icon": "ponte-dos-macuxis",
+   "place": "boa-vista",
+   "label": "Ponte dos Macuxis",
+   "width": 34,
+   "minZoom": 5,
+   "offset": [
+    0,
+    0
+   ],
+   "at": [
+    -60.68,
+    2.819
+   ],
+   "anchor": [
+    0.5,
+    0.75
+   ],
+   "maxScale": 2.0
+  }
+ ],
+ "journey": {
+  "title": "Homes",
+  "places": [
+   "palm-desert",
+   "boston",
+   "plantation",
+   "memphis",
+   "brooklyn",
+   "shreveport",
+   "bradenton",
+   "boca-raton",
+   "berkeley",
+   "oakland",
+   "san-francisco",
+   "sao-paulo"
+  ]
+ }
+}
