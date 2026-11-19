@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>guezono_digital_home · Professional</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <style>
@@ -65,11 +65,11 @@
   section.seen .draw { stroke-dashoffset: 0; }
   .grow { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); transition: transform .7s ease; }
   section.seen .grow { transform: scaleY(1); }
-  body { padding-top: 64px; }
+  body { padding-top: calc(64px + env(safe-area-inset-top)); }
   body[data-tab="personal"] { overflow: hidden; }
 
   /* sea-glass tab pill */
-  .tabs { position: fixed; z-index: 30; top: 14px; left: 50%; transform: translateX(-50%); display: flex; padding: 5px;
+  .tabs { position: fixed; z-index: 30; top: max(14px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); display: flex; padding: 5px;
           border-radius: 26px 30px 24px 32px / 30px 24px 32px 26px; overflow: hidden;
           background: rgba(255,255,255,.08); backdrop-filter: blur(18px) saturate(1.6); -webkit-backdrop-filter: blur(18px) saturate(1.6);
           border: 1px solid rgba(255,255,255,.18);
@@ -104,12 +104,12 @@
   /* panels */
   #professional { transition: opacity .25s ease, transform .25s ease; }
   #professional.entering { opacity: 0; transform: translateY(8px); transition: none; }
-  #personal { position: fixed; inset: 0; z-index: 20; background: #9fd3ec; transition: opacity .25s ease; }
+  #personal { position: fixed; inset: 0; height: 100dvh; z-index: 20; overscroll-behavior: none; touch-action: none; background: #9fd3ec; transition: opacity .25s ease; }
   #personal.off { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .25s ease, visibility 0s .25s; }
   #personal iframe { display: block; width: 100%; height: 100%; border: 0; }
 
   /* glass-water tide, played when switching to Personal */
-  #wash { position: fixed; inset: 0; z-index: 25; pointer-events: none; overflow: hidden; visibility: hidden; }
+  #wash { position: fixed; inset: 0; height: 100lvh; z-index: 25; pointer-events: none; overflow: hidden; visibility: hidden; }
   #wash.on { visibility: visible; }
   #wash .w { position: absolute; left: -10%; right: -10%; top: 0; height: 125%; transform: translateY(100%);
              transition: transform .55s cubic-bezier(.45,0,.3,1); }
@@ -122,7 +122,17 @@
   #wash.out .w { transform: translateY(105%); transition-duration: .6s; }
   #wash.out .w1 { transition-delay: .14s; } #wash.out .w3 { transition-delay: 0s; }
 
-  @media (max-width: 700px) { .tabs a { padding: 9px 18px; } }
+  @media (max-width: 700px) {
+    .tabs a { padding: 11px 20px; }
+    main { padding-left: max(18px, env(safe-area-inset-left)); padding-right: max(18px, env(safe-area-inset-right)); }
+    .card { padding: 14px 12px; }
+    .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; font-size: 13px; }
+    #tip { max-width: calc(100vw - 24px); }
+    svg text { font-size: 14px; }
+    .count { font-size: 14px; }
+  }
+  .tap-only { display: none; }
+  @media (hover: none) { .hover-only { display: none; } .tap-only { display: inline; } }
   @media (prefers-reduced-motion: reduce) {
     #wash { display: none; }
     .drop, .drop i, .tabs::after { transition-duration: .15s; animation: none; }
@@ -140,7 +150,7 @@
   <section class="top" id="timeline">
     <div class="kicker">GitHub output · <a href="https://github.com/greguezono" rel="me">guezono_digital_home</a> · Nov 2023 – <span id="seriesEndLabel"></span></div>
     <h1>Every month, every PR</h1>
-    <p class="lede">Number above each bar is PRs opened that month. Color shows how big the typical PR was: grey is pre-AI, hot amber is huge. Hover a bar for details.</p>
+    <p class="lede">Number above each bar is PRs opened that month. Color shows how big the typical PR was: grey is pre-AI, hot amber is huge. <span class="hover-only">Hover</span><span class="tap-only">Tap</span> a bar for details.</p>
     <div class="card"><svg id="barChart" viewBox="0 0 1000 380"></svg>
       <div class="legend">
         <span><i class="sw" style="background:var(--pre)"></i>Pre-AI</span>
@@ -244,10 +254,18 @@ const tip = document.getElementById("tip");
 function showTip(evt, html) {
   tip.innerHTML = html;
   tip.style.opacity = 1;
-  tip.style.left = Math.min(evt.clientX + 14, innerWidth - 220) + "px";
-  tip.style.top = evt.clientY + 14 + "px";
+  tip.style.left = Math.max(8, Math.min(evt.clientX + 14, innerWidth - tip.offsetWidth - 8)) + "px";
+  tip.style.top = Math.min(evt.clientY + 14, innerHeight - tip.offsetHeight - 8) + "px";
+}
+// touch screens have no hover: a tap on a bar or point shows its tip, a tap anywhere else hides it
+function tipOn(node, html) {
+  node.addEventListener("mousemove", e => showTip(e, html()));
+  node.addEventListener("mouseleave", hideTip);
+  node.addEventListener("click", e => { e.stopPropagation(); showTip(e, html()); });
 }
 const hideTip = () => (tip.style.opacity = 0);
+addEventListener("click", hideTip);
+addEventListener("scroll", hideTip, { passive: true });
 
 function monthTip(d) {
   return `<b>${monthLabel(d.month)}</b><br>
@@ -256,7 +274,14 @@ function monthTip(d) {
     ${d.aiMentioned ? `<br><span class="m">${d.aiMentioned} mention Claude/Codex</span>` : ""}`;
 }
 
+// on a phone each chart draws into a narrower viewBox, so its 11px text renders about 2.3× larger
+const phoneQ = matchMedia("(max-width: 700px)");
+const PHONE_VIEW = { barChart: [420, 320], gapChart: [420, 280], rateChart: [420, 260], reachChart: [420, 260] };
+const DESK_VIEW = {};
 function frame(svg, { left = 44, right = 16, top = 24, bottom = 36 } = {}) {
+  DESK_VIEW[svg.id] ??= svg.getAttribute("viewBox");
+  svg.setAttribute("viewBox", phoneQ.matches ? `0 0 ${PHONE_VIEW[svg.id].join(" ")}` : DESK_VIEW[svg.id]);
+  if (phoneQ.matches) { left = Math.min(left, 34); right = Math.min(right, svg.id === "reachChart" ? 36 : 10); }
   const [, , w, h] = svg.getAttribute("viewBox").split(" ").map(Number);
   return { w, h, left, right, top, bottom, iw: w - left - right, ih: h - top - bottom };
 }
@@ -272,8 +297,9 @@ function yAxis(svg, f, max, ticks, suffix = "") {
 
 function xLabels(svg, f, items, xOf) {
   items.forEach((d, i) => {
-    const nearAi = Math.abs(items.findIndex(x => x.month === firstAiMonth) - i) <= 2 && d.month !== firstAiMonth;
-    const nearEnd = items.length - 1 - i <= 2 && i !== items.length - 1;
+    const gap = phoneQ.matches ? Math.ceil(items.length / 8) : 2;
+    const nearAi = Math.abs(items.findIndex(x => x.month === firstAiMonth) - i) <= gap && d.month !== firstAiMonth;
+    const nearEnd = items.length - 1 - i <= gap && i !== items.length - 1;
     if ((d.month.endsWith("-01") && !nearAi && !nearEnd) || i === items.length - 1 || d.month === firstAiMonth) {
       const t = el("text", { x: xOf(i), y: f.h - 12, "text-anchor": "middle" }, svg);
       t.textContent = monthLabel(d.month);
@@ -307,19 +333,20 @@ function countUpHero() {
 }
 
 function renderBars() {
-  const svg = document.getElementById("barChart"), f = frame(svg);
+  const svg = document.getElementById("barChart"), f = frame(svg, phoneQ.matches ? { top: 52 } : {});
   const max = Math.ceil((Math.max(...M.map(d => d.prs)) + 8) / 20) * 20;
   const slot = f.iw / M.length, bw = slot * 0.72;
   const xOf = i => f.left + i * slot + slot / 2;
-  const aiIndex = M.findIndex(d => isAi(d.month));
-  const band = (from, to, label, fill) => {
+  const aiIndex = M.findIndex(d => isAi(d.month)), peakPrs = Math.max(...M.map(d => d.prs));
+  const band = (from, to, label, fill, row = 0) => {
     const x1 = f.left + from * slot, x2 = f.left + (to + 1) * slot;
     el("rect", { x: x1, y: f.top, width: x2 - x1, height: f.ih, fill }, svg);
-    el("text", { x: x1 + 8, y: f.top + 14, fill: "var(--muted)" }, svg).textContent = label;
+    // phone band labels sit above the plot, clear of the tallest value labels
+    el("text", { x: x1 + (phoneQ.matches ? 3 : 8), y: phoneQ.matches ? f.top + 2 - (1 - row) * 17 : f.top + 14, fill: "var(--muted)" }, svg).textContent = label;
   };
   const idx = m => M.findIndex(d => d.month === m);
   band(idx(P.bigger.from), idx(P.bigger.to), "Bigger PRs", "rgba(255,179,71,.05)");
-  band(idx(P.more.from), idx(P.more.to), "More PRs", "rgba(255,107,61,.07)");
+  band(idx(P.more.from), idx(P.more.to), "More PRs", "rgba(255,107,61,.07)", phoneQ.matches ? 1 : 0);
   yAxis(svg, f, max, [0, 20, 40, 60, 80, 100].filter(v => v <= max && Math.abs(v - BASE) >= 6));
   M.forEach((d, i) => {
     const h = (d.prs / max) * f.ih;
@@ -328,9 +355,8 @@ function renderBars() {
       fill: isAi(d.month) ? sizeColor(d.medianAdditions) : "var(--pre)",
       style: `transition-delay:${i * 25}ms`,
     }, svg);
-    r.addEventListener("mousemove", e => showTip(e, monthTip(d)));
-    r.addEventListener("mouseleave", hideTip);
-    el("text", {
+    tipOn(r, () => monthTip(d));
+    if (!phoneQ.matches || i % 3 === M.length % 3 || i === aiIndex || d.prs === peakPrs) el("text", {
       class: "count", x: xOf(i), y: f.top + f.ih - h - 5, "text-anchor": "middle",
       fill: isAi(d.month) ? "var(--text)" : "var(--muted)", style: `transition-delay:${400 + i * 25}ms`,
     }, svg).textContent = d.prs;
@@ -341,7 +367,7 @@ function renderBars() {
   const ax = f.left + aiIndex * slot;
   el("line", { x1: ax, x2: ax, y1: f.top - 8, y2: f.top + f.ih, stroke: "var(--ai)", "stroke-dasharray": "4 4", "stroke-width": 1.5 }, svg);
   const lbl = el("text", { x: ax - 6, y: f.top - 12, "text-anchor": "end", fill: "var(--ai)" }, svg);
-  lbl.textContent = `${DATA.firstAiDate} · first Claude commit`;
+  lbl.textContent = phoneQ.matches ? "first Claude" : `${DATA.firstAiDate} · first Claude commit`;
   xLabels(svg, f, M, xOf);
 }
 
@@ -372,12 +398,10 @@ function renderGap() {
   }
   pts.forEach((p, i) => {
     const c = el("circle", { cx: xOf(i), cy: yOf(p.actual), r: 4, fill: "var(--bg)", stroke: "var(--ai)", "stroke-width": 2 }, svg);
-    c.addEventListener("mousemove", e => showTip(e,
-      `<b>Through ${monthLabel(p.d.month)}</b><br>${p.actual} actual · ${Math.round(p.projected)} at old pace<br><span class="m">+${Math.round(p.actual - p.projected)} extra</span>`));
-    c.addEventListener("mouseleave", hideTip);
+    tipOn(c, () => `<b>Through ${monthLabel(p.d.month)}</b><br>${p.actual} actual · ${Math.round(p.projected)} at old pace<br><span class="m">+${Math.round(p.actual - p.projected)} extra</span>`);
   });
   const lx = xOf(pts.length - 1);
-  el("text", { x: lx - 8, y: (yOf(last.actual) + yOf(last.projected)) / 2 + 6, "text-anchor": "end", fill: "var(--ai)", style: "font-size:26px;font-weight:800" }, svg)
+  el("text", { x: lx - 8, y: (yOf(last.actual) + yOf(last.projected)) / 2 + 6, "text-anchor": "end", fill: "var(--ai)", style: `font-size:${phoneQ.matches ? 18 : 26}px;font-weight:800` }, svg)
     .textContent = `+${extra} PRs`;
   xLabels(svg, f, post, xOf);
 }
@@ -405,12 +429,11 @@ function renderRate() {
   const peak = roll.reduce((a, b) => (b.x > a.x ? b : a));
   roll.forEach((r, i) => {
     const c = el("circle", { cx: xOf(i), cy: yOf(r.x), r: r === peak ? 6 : 3, fill: isAi(r.d.month) ? "var(--ai)" : "var(--pre)" }, svg);
-    c.addEventListener("mousemove", e => showTip(e, `<b>3 months to ${monthLabel(r.d.month)}</b><br>${r.x.toFixed(1)}× baseline`));
-    c.addEventListener("mouseleave", hideTip);
+    tipOn(c, () => `<b>3 months to ${monthLabel(r.d.month)}</b><br>${r.x.toFixed(1)}× baseline`);
   });
   const pi = roll.indexOf(peak);
-  el("text", { x: xOf(pi) - 12, y: yOf(peak.x) + 4, "text-anchor": "end", fill: "var(--ai)", style: "font-size:15px;font-weight:700" }, svg)
-    .textContent = `peak ${peak.x.toFixed(1)}× · ${monthLabel(peak.d.month)}`;
+  el("text", { x: xOf(pi) - 12, y: yOf(peak.x) + 4, "text-anchor": "end", fill: "var(--ai)", style: `font-size:${phoneQ.matches ? 14 : 15}px;font-weight:700` }, svg)
+    .textContent = phoneQ.matches ? `peak ${peak.x.toFixed(1)}×` : `peak ${peak.x.toFixed(1)}× · ${monthLabel(peak.d.month)}`;
   xLabels(svg, f, roll.map(r => r.d), xOf);
 }
 
@@ -441,9 +464,8 @@ function renderReach() {
   rows.forEach((r, i) => {
     const h = (r.repos / max) * f.ih, x = f.left + i * slot + (slot - bw) / 2;
     const b = el("rect", { class: "grow", x, y: f.top + f.ih - h, width: bw, height: h, rx: 3, fill: r.ai ? "var(--ai)" : "var(--pre)", style: `transition-delay:${i * 50}ms` }, svg);
-    b.addEventListener("mousemove", e => showTip(e, `<b>${r.q}</b><br>${r.repos} distinct repos<br><span class="m">merge rate ${Math.round(r.mergeRate * 100)}%</span>`));
-    b.addEventListener("mouseleave", hideTip);
-    el("text", { x: x + bw / 2, y: f.h - 12, "text-anchor": "middle" }, svg).textContent = r.q.replace("20", "'");
+    tipOn(b, () => `<b>${r.q}</b><br>${r.repos} distinct repos<br><span class="m">merge rate ${Math.round(r.mergeRate * 100)}%</span>`);
+    if (!phoneQ.matches || i % 2 === (rows.length - 1) % 2) el("text", { x: x + bw / 2, y: f.h - 12, "text-anchor": "middle" }, svg).textContent = phoneQ.matches ? r.q.replace(/^20(\d\d) /, "'$1 ") : r.q.replace("20", "'");
   });
   const yRate = v => f.top + f.ih - v * f.ih;
   const d = rows.map((r, i) => `${i ? "L" : "M"}${f.left + i * slot + slot / 2},${yRate(r.mergeRate)}`).join("");
@@ -469,6 +491,10 @@ function renderCaveats() {
 document.getElementById("baseLegend").textContent = `- - - pre-AI baseline: ${BASE} PRs/mo`;
 document.getElementById("seriesEndLabel").textContent = longMonth(DATA.seriesEnd);
 renderHero(); renderBars(); renderGap(); renderRate(); renderPhases(); renderReach(); renderCaveats();
+phoneQ.addEventListener("change", () => {
+  for (const id of Object.keys(PHONE_VIEW)) document.getElementById(id).replaceChildren();
+  renderBars(); renderGap(); renderRate(); renderReach();
+});
 
 if (location.search.includes("static")) {
   document.documentElement.style.setProperty("--static", 1);
@@ -492,6 +518,13 @@ let current = null, proScroll = 0, switching = Promise.resolve();
 const whenAtlasReady = new Promise(resolve => addEventListener("message", e => {
   if (e.origin === location.origin && e.data === "atlas-ready") resolve();
 }));
+
+function reportChrome() {
+  const f = panes.personal.querySelector("iframe");
+  f?.contentWindow?.postMessage({ type: "atlas-chrome", top: Math.ceil(document.querySelector(".tabs").getBoundingClientRect().bottom) }, location.origin);
+}
+whenAtlasReady.then(reportChrome);
+addEventListener("resize", reportChrome);
 
 function placeDrop() {
   const tab = document.getElementById("tab-" + (current || "professional"));

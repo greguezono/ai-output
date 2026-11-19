@@ -8,7 +8,8 @@
 <style>
 :root{--ink:#2b2733;--paper:#fbf4e2;--paper2:#f3e8cc;--sea:#9fd3ec;--lived:#d9573b;--visited:#2f9d62;--surfed:#1d6fa5;--hand:"Patrick Hand","Comic Sans MS",cursive;--toon:"Luckiest Guy","Arial Black",sans-serif;
   color-scheme:light;font:16px/1.35 var(--hand);color:var(--ink);background:var(--sea)}
-*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden}
+*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;touch-action:none;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+#card,#results{touch-action:pan-y}
 #map{position:fixed;inset:0;background:var(--sea)}
 #ov{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
 #ov>*{position:absolute;left:0;top:0;will-change:transform}
@@ -44,6 +45,9 @@
 .list .row svg{vertical-align:-1px;margin:0 3px}
 .list .row:hover,.list .row.sel{background:rgba(255,255,255,.6);color:#000}
 .zoomed-hi .list{display:none}
+.gbadge{display:none;pointer-events:auto;cursor:pointer;font:15px/1 var(--hand);color:#13202f;white-space:nowrap;background:rgba(251,244,226,.92);border:1.8px solid var(--ink);border-radius:999px;padding:4px 9px 3px 7px;box-shadow:1.5px 2px 0 rgba(43,39,51,.3)}
+.gbadge svg{vertical-align:-2px;margin-right:3px}.gbadge b{font:400 13px var(--toon);color:var(--surfed);margin-left:4px}
+.gbadge.sel{background:#fff}
 .spot .lbl{display:none;position:absolute;left:9px;top:-17px;font-size:14px;white-space:nowrap;text-shadow:0 0 3px #d6eef9,0 0 3px #d6eef9}
 .zoomed-hi .spot .lbl{display:block}
 /* hand-drawn paper boxes */
@@ -52,7 +56,7 @@
 #title .kick{display:flex;justify-content:space-between;font-size:14px;letter-spacing:.06em}
 #title .kick a{color:var(--lived);text-decoration:none}
 .embedded #title .kick a{display:none}
-@media(max-width:1100px){.embedded #title,.embedded #card{top:72px}.embedded #card{max-height:calc(100svh - 88px)}}
+@media(max-width:1100px){.embedded #title,.embedded #card{top:calc(var(--chrome-top,58px) + 14px)}.embedded #card{max-height:calc(100svh - var(--chrome-top,58px) - 30px)}}
 #title h1{font:400 27px/1.02 var(--toon);margin:8px 0 4px;color:var(--lived);-webkit-text-stroke:1.2px var(--ink);paint-order:stroke fill;text-shadow:2px 2.5px 0 var(--ink);letter-spacing:.02em}
 #title h1 span{color:#f3b23e}
 #title .kick{margin-right:30px}
@@ -91,6 +95,7 @@
 #card{position:fixed;z-index:4;top:16px;right:16px;width:330px;max-height:calc(100svh - 32px);overflow:auto;padding:16px 18px 18px;background:#fffaf0;
   border:0;border-radius:4px;box-shadow:0 0 0 1px #e2d6b8,4px 6px 0 rgba(43,39,51,.25);background-image:repeating-linear-gradient(transparent 0 25px,#e9dfc4 25px 26px)}
 #card[hidden]{display:none}
+#card .grab{display:none}
 #card .x{position:absolute;right:10px;top:8px;font:22px var(--toon);background:none;border:0;cursor:pointer;color:var(--ink)}
 #card .stamp{float:right;margin:14px 0 8px 10px;width:62px;height:72px;display:grid;place-items:center;background:#fff;border:2px dashed var(--tint);outline:5px solid #fff;transform:rotate(4deg);box-shadow:1px 2px 4px rgba(0,0,0,.2)}
 #card h2{font:400 30px/1.02 var(--toon);margin:10px 0 4px;color:var(--tint);-webkit-text-stroke:1px var(--ink);paint-order:stroke fill;text-shadow:1.5px 2px 0 var(--ink);letter-spacing:.02em}
@@ -120,10 +125,18 @@
   #legend h3,#legend .hint{display:none}
   #legend button{flex:1;gap:5px;font-size:15.5px;padding:3px 0;justify-content:center}#legend button b{margin-left:0;font-size:13px}
   #legend .box{width:16px;height:16px}#legend button[aria-pressed=true] .box:after{left:3px;top:-4px;width:6px;height:12px;border-width:0 3px 3px 0}
-  #card{top:auto;bottom:0;left:0;right:0;width:auto;max-height:52svh;border-radius:16px 16px 0 0;padding-bottom:calc(18px + env(safe-area-inset-bottom))}
+  #title{top:calc(10px + env(safe-area-inset-top));left:calc(10px + env(safe-area-inset-left));right:calc(10px + env(safe-area-inset-right))}
+  #title h1{font-size:19px}#search{font-size:16px;padding:7px 10px}
+  #tgl{height:44px;min-width:44px;top:4px;right:4px;justify-content:center}#title.collapsed #tgl{height:44px}
+  #legend button{min-height:44px}
+  #card,.embedded #card{top:auto;bottom:0;left:0;right:0;width:auto;max-height:52svh;border-radius:16px 16px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom));transition:transform .2s ease-out}
+  #card .grab{display:block;position:absolute;left:50%;top:7px;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:#cdbf9c}
+  #card .x{width:44px;height:44px;right:4px;top:4px}
   #compass{display:none}.maplibregl-ctrl-top-right{display:none}
+  .maplibregl-ctrl-bottom-right{bottom:calc(66px + env(safe-area-inset-bottom))}
   .list{font-size:13px;line-height:13.5px}.list h4{font-size:14px;line-height:14px}
 }
+@media(pointer:coarse){.pin:after,.home:after,.spot:after{content:"";position:absolute;left:-22px;top:-36px;width:44px;height:44px}.spot:after{top:-22px}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wob" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter></svg>
 <div id="map" aria-label="Illustrated travel map"></div>
@@ -222,8 +235,12 @@ const hatch = color => texture(16, (g, n) => { g.strokeStyle = color; g.lineWidt
 // ---------- map: flat, custom painted style ----------
 const LAT_TOP = 78, LAT_BOT = -58;
 const mercY = lat => .5 - Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)) / (2 * Math.PI);
-const minZoomFor = h => Math.log2(h / (512 * (mercY(LAT_BOT) - mercY(LAT_TOP))));
-const W = innerWidth, H = innerHeight;
+// desktop fits the 78°/−58° band to the height; a portrait phone may zoom out until the whole world fits the width,
+// with painted sea above and below the band
+const BAND = mercY(LAT_BOT) - mercY(LAT_TOP), phoneQ = matchMedia('(max-width:700px) and (orientation:portrait)');
+const heightFit = h => Math.log2(h / (512 * BAND));
+const minZoomFor = (w, h) => phoneQ.matches ? Math.min(Math.log2(w / 512), heightFit(h)) : heightFit(h);
+const W = innerWidth, H = innerHeight, startZoom = phoneQ.matches ? minZoomFor(W, H) + 1.1 : Math.max(Math.log2(W / 512) + .05, minZoomFor(W, H));
 const style = {version:8, glyphs:'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
   sources:{omt:{type:'vector', url:'https://tiles.openfreemap.org/planet'}},
   layers:[
@@ -238,21 +255,41 @@ const style = {version:8, glyphs:'https://tiles.openfreemap.org/fonts/{fontstack
     {id:'coast', type:'line', source:'omt', 'source-layer':'water', paint:{'line-color':INK, 'line-width':['interpolate',['linear'],['zoom'],1,.9,6,1.6,12,2.2], 'line-opacity':.9}},
     {id:'labels', type:'symbol', source:'omt', 'source-layer':'place', minzoom:5, filter:['in',['get','class'],['literal',['city','town']]], layout:{'text-field':['coalesce',['get','name_en'],['get','name:latin'],['get','name']], 'text-font':['Noto Sans Italic'], 'text-size':['interpolate',['linear'],['zoom'],5,10,10,14]}, paint:{'text-color':'#5b5240', 'text-halo-color':'#f6eedb', 'text-halo-width':1.4}},
   ]};
-const map = new maplibregl.Map({container:'map', style, center:[-8, 18], zoom:Math.max(Math.log2(W / 512) + .05, minZoomFor(H)), minZoom:minZoomFor(H), maxZoom:15, attributionControl:false, renderWorldCopies:true, dragRotate:false, pitchWithRotate:false, touchPitch:false});
+const map = new maplibregl.Map({container:'map', style, center:phoneQ.matches ? [-40, 18] : [-8, 18], zoom:startZoom, minZoom:minZoomFor(W, H), maxZoom:15, attributionControl:false, renderWorldCopies:true, dragRotate:false, pitchWithRotate:false, touchPitch:false});
 map.touchZoomRotate.disableRotation();
 window.atlasMap = map;
 map.addControl(new maplibregl.AttributionControl({compact:true, customAttribution:'OpenFreeMap · © OpenStreetMap · Natural Earth'}), 'bottom-right');
 map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+if (phoneQ.matches) map.once('load', () => document.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'));
 map.addImage('ocean', ocean); map.addImage('hatch-lived', hatch('#c8541f')); map.addImage('hatch-visited', hatch('#2a7d50'));
 // keep the poster edges on screen: no grey void above the Arctic or below the Southern Ocean
 map.transformCameraUpdate = next => {
   const ws = 512 * 2 ** next.zoom, h = map.getContainer().clientHeight, top = mercY(LAT_TOP) * ws + h / 2, bot = mercY(LAT_BOT) * ws - h / 2;
-  const y = clamp(mercY(next.center.lat) * ws, top, Math.max(top, bot)), lat = (360 / Math.PI) * Math.atan(Math.exp((.5 - y / ws) * 2 * Math.PI)) - 90;
+  // when the band is shorter than the screen (phone zoomed out) keep it vertically centred
+  const y = top <= bot ? clamp(mercY(next.center.lat) * ws, top, bot) : (top + bot) / 2, lat = (360 / Math.PI) * Math.atan(Math.exp((.5 - y / ws) * 2 * Math.PI)) - 90;
   return {center:new maplibregl.LngLat(next.center.lng, lat)};
 };
-addEventListener('resize', () => map.setMinZoom(minZoomFor(map.getContainer().clientHeight)));
+// MapLibre has no public option to let the ±85° world be shorter than the screen; it zooms in until it fills the
+// height. Clearing its internal latitude range on phone allows the width-fit zoom; the camera clamp above still
+// keeps the poster band in view.
+const latHelper = map.transform._helper, fullLat = latHelper?._latRange && [...latHelper._latRange];
+const syncPhone = () => {
+  const c = map.getContainer();
+  if (fullLat) latHelper._latRange = phoneQ.matches ? null : fullLat;
+  map.setMinZoom(minZoomFor(c.clientWidth, c.clientHeight));
+  if (map.getLayer('band-edge')) for (const l of ['band-sea', 'band-edge']) map.setLayoutProperty(l, 'visibility', phoneQ.matches ? 'visible' : 'none');
+};
+syncPhone(); if (phoneQ.matches) map.jumpTo({zoom:startZoom});
+addEventListener('resize', syncPhone);
+// the parent page reports where its tab pill ends so the title and card clear it
+addEventListener('message', e => { if (e.origin === location.origin && e.data?.type === 'atlas-chrome') document.documentElement.style.setProperty('--chrome-top', e.data.top + 'px'); });
+{ const c = document.createElement('canvas'); c.width = c.height = 256; c.getContext('2d').putImageData(ocean, 0, 0); $('#map').style.background = `url(${c.toDataURL()}) #9fd3ec`; }
 
 // ---------- overlay elements ----------
+// MapLibre only handles touches whose target is inside its canvas container, so on touch screens the overlay moves
+// in there and a pan or pinch that starts on a sticker still moves the map
+const coarse = matchMedia('(pointer:coarse)').matches;
+if (coarse) map.getCanvasContainer().append($('#ov'));
 const ov = $('#ov'), add = (cls, html, data = {}) => { const e = el('div', {className:cls}, html); Object.assign(e.dataset, data); ov.append(e); return e; };
 const countryEls = countries.features.map(f => { const p = f.properties, h = [...p.country].reduce((a, c) => a + c.charCodeAt(0), 0);
   return {p, e:add('cname', p.label), rot:((h % 9) - 4) * 1.2}; });
@@ -262,12 +299,13 @@ const homeEls = new Map(journey.map(id => [id, add('home', `${HOME(40)}<span cla
 const homeOf = new Map();
 const pinEls = new Map(places.map(p => [p.id, add('pin', `<svg></svg><span class="badge"></span><span class="lbl">${p.name}</span>`, {id:p.id})]));
 const spotEls = new Map([...groupOf.keys()].map(id => [id, add('spot', `<i></i><span class="lbl">${esc(byId.get(id).name)}</span>`, {id})]));
-const groupEls = art.groups.filter(g => g.list !== false).map(g => ({g, ids:[], e:add(`list ${g.align}`, '')}));
+const groupEls = art.groups.filter(g => g.list !== false).map(g => ({g, ids:[], e:add(`list ${g.align}`, ''), b:add('gbadge', '', {group:g.id, list:'1'})}));
 function renderGroups() {
   for (const o of groupEls) {
     o.ids = o.g.places.filter(id => badge(byId.get(id)));
     o.e.innerHTML = o.ids.length ? `<h4>${esc(o.g.title)}</h4>` + o.ids.map(id => { const i = icon[badge(byId.get(id))](15), n = esc(byId.get(id).name); return `<span class="row" data-id="${id}">${o.g.align === 'left' ? i + n : n + i}</span>`; }).join('') : '';
-    o.e._w = o.e._h = undefined;
+    o.e._w = o.e._h = o.b._w = o.b._h = undefined;
+    o.b.innerHTML = o.ids.length ? `${icon.surfed(16)}${esc(o.g.title)}<b>${o.ids.length}</b>` : '';
   }
 }
 // screen-space bounding box of a group's places, so its list stays offshore at any zoom
@@ -279,7 +317,7 @@ const place = (e, x, y, extra = '') => { e.style.transform = `translate(${x}px,$
 const show = (e, on) => { e.style.display = on ? '' : 'none'; };
 
 function layout() {
-  const z = map.getZoom(), w = innerWidth, h = innerHeight, ppd = 512 * 2 ** z / 360, off = (pt, m = 80) => pt.x < -m || pt.y < -m || pt.x > w + m || pt.y > h + m;
+  const z = map.getZoom(), w = innerWidth, h = innerHeight, phone = phoneQ.matches, ppd = 512 * 2 ** z / 360, off = (pt, m = 80) => pt.x < -m || pt.y < -m || pt.x > w + m || pt.y > h + m;
   document.body.classList.toggle('zoomed', z >= 5.2); document.body.classList.toggle('zoomed-hi', z >= 7.5);
   for (const {p, e, rot} of countryEls) {
     const fs = clamp(p.w * ppd * .4, 0, 46), pt = proj([p.lx, p.ly]), on = active.has(p.country) && fs >= 9 && z < 5.5 && !off(pt);
@@ -291,7 +329,7 @@ function layout() {
     // size grows with the map, capped at maxScale × width so it never swallows a city view
     // sideBy stickers keep their offset at every zoom so they sit beside a lived home instead of under it
     const k = s.sideBy ? 1 : clamp((4 - z) / 2.5, 0, 1), a = proj(at), x = a.x + s.offset[0] * k, y = a.y + s.offset[1] * k;
-    const sc = clamp(2 ** ((z - map.getMinZoom()) * .75), 1, s.maxScale ?? 3.5), on = z >= (s.minZoom ?? 0) && stickerOn(s) && !off({x, y}, s.width * sc + 40);
+    const sc = clamp(2 ** ((z - map.getMinZoom()) * .75), 1, s.maxScale ?? 3.5) * (phone ? .75 : 1), on = z >= (s.minZoom ?? 0) && stickerOn(s) && !off({x, y}, s.width * sc + 40);
     show(e, on);
     // below city zoom a sticker-only group's sticker stands in for its members' pins and cluster badge
     if (on && s.group && groupById.get(s.group).list === false && z < 5.2) groupById.get(s.group).places.forEach(id => coveredIds.add(id));
@@ -317,11 +355,30 @@ function layout() {
     if (e.dataset.cat !== b) { e.dataset.cat = b; e.firstElementChild.outerHTML = icon[b](17); }
     e.classList.toggle('sel', id === selected); place(e, s.x, s.y);
   }
-  for (const {g, ids, e} of groupEls) {
+  const badgeBoxes = [];
+  for (const {g, ids, e, b} of groupEls) {
+    // on a phone, below city zoom, a list collapses to a tappable badge so it never runs off-screen
+    // at the very widest zoom badges would pile up, so only the spots and leaders remain
+    const asBadge = phone && z < PHONE_LIST_ZOOM, badgeRoom = z >= map.getMinZoom() + .7;
+    if (!ids.length || !asBadge) show(b, false);
     if (!ids.length) { show(e, false); continue; }
-    const bx = boxOf(ids), a = {x:(g.align === 'right' ? bx.l : bx.r) + g.offset[0], y:(bx.t + bx.btm) / 2 + g.offset[1]};
+    const k = phone ? .5 : 1, bx = boxOf(ids), a = {x:(g.align === 'right' ? bx.l : bx.r) + g.offset[0] * k, y:(bx.t + bx.btm) / 2 + g.offset[1] * k};
+    if (asBadge) {
+      show(e, false); const on = badgeRoom && !off(a, 120); b.style.display = on ? 'block' : 'none'; if (!on) continue;
+      b._w ??= b.offsetWidth; b._h ??= b.offsetHeight;
+      const x = clamp(g.align === 'right' ? a.x - b._w : a.x, 6, w - b._w - 6), lx = g.align === 'right' ? x + b._w : x;
+      // nudge down past any badge already placed, so neighbours like Noronha and the Maldives never overlap
+      let y = a.y - b._h / 2, hit;
+      while ((hit = badgeBoxes.find(r => x < r.x + r.w + 4 && r.x < x + b._w + 4 && y < r.y + r.h + 4 && r.y < y + b._h + 4))) y = hit.y + hit.h + 4;
+      badgeBoxes.push({x, y, w:b._w, h:b._h});
+      place(b, x, y); b.classList.toggle('sel', ids.includes(selected));
+      for (const id of ids) { const s = proj(byId.get(id).coordinates), seg = `M${lx.toFixed(1)} ${(y + b._h / 2).toFixed(1)}L${s.x.toFixed(1)} ${s.y.toFixed(1)}`; d += seg; if (id === selected) ds2 += seg; }
+      continue;
+    }
     const on = z < 7.5 && !off(a, 260); show(e, on); if (!on) continue;
-    e._w ??= e.offsetWidth; a.y -= (e._h ??= e.offsetHeight) / 2; const x = g.align === 'right' ? a.x - e._w : a.x; place(e, x, a.y);
+    e._w ??= e.offsetWidth; a.y -= (e._h ??= e.offsetHeight) / 2; let x = g.align === 'right' ? a.x - e._w : a.x;
+    if (phone) { x = clamp(x, 6, w - e._w - 6); a.x = g.align === 'right' ? x + e._w : x; }
+    place(e, x, a.y);
     for (const r of e.querySelectorAll('.row')) {
       r._y ??= r.offsetTop + r.offsetHeight / 2; r._w ??= r.offsetWidth;
       const s = proj(byId.get(r.dataset.id).coordinates), lx = g.align === 'right' ? a.x + 3 : a.x - 3, ly = a.y + r._y;
@@ -334,7 +391,7 @@ function layout() {
 
 // ---------- lived journey: numbered homes joined in order by a dotted trail ----------
 // homes closer than HOME_GAP px share one house whose tag lists every stop, e.g. "2·3·4"
-const HOME_GAP = 30;
+const HOME_GAP = 30, PHONE_LIST_ZOOM = 4.5;
 function layoutJourney(z, off) {
   const on = enabled.has('lived'), stops = [];
   homeOf.clear();
@@ -384,6 +441,13 @@ map.on('load', async () => {
   map.addLayer({id:'area-fill', type:'fill', source:'areas', paint:{'fill-pattern':['concat','hatch-',['get','cat']], 'fill-opacity':['interpolate',['linear'],['zoom'],2,.75,8,.6,12,.35]}}, 'water');
   map.addLayer({id:'area-wash', type:'fill', source:'areas', filter:['!=',['get','scale'],'region'], paint:{'fill-color':['match',['get','cat'],'lived','#f39a5b','#7fcf8f'], 'fill-opacity':.35}}, 'area-fill');
   map.addLayer({id:'area-line', type:'line', source:'areas', paint:{'line-color':['match',['get','cat'],'lived','#b8461d','#226b44'], 'line-width':['case',['==',['get','scale'],'region'],1.2,1.8], 'line-dasharray':[2,1.5], 'line-opacity':.9}}, 'water');
+  const lat = [85.0511, LAT_TOP, LAT_BOT, -85.0511], ring = (a, b) => [[-180, a], [180, a], [180, b], [-180, b], [-180, a]];
+  map.addSource('band', {type:'geojson', data:{type:'FeatureCollection', features:[
+    {type:'Feature', properties:{}, geometry:{type:'MultiPolygon', coordinates:[[ring(lat[0], lat[1])], [ring(lat[2], lat[3])]]}},
+    {type:'Feature', properties:{}, geometry:{type:'MultiLineString', coordinates:[[[-180, LAT_TOP], [180, LAT_TOP]], [[-180, LAT_BOT], [180, LAT_BOT]]]}}]}});
+  map.addLayer({id:'band-sea', type:'fill', source:'band', filter:['==',['geometry-type'],'Polygon'], paint:{'fill-pattern':'ocean'}});
+  map.addLayer({id:'band-edge', type:'line', source:'band', filter:['==',['geometry-type'],'LineString'], paint:{'line-color':INK, 'line-width':1.4, 'line-dasharray':[4,3], 'line-opacity':.55}});
+  syncPhone();
   await document.fonts.ready; refresh(); document.body.dataset.ready = '1';
   if (window.top !== window) parent.postMessage('atlas-ready', '*');
   if (location.hash && byId.has(decodeURIComponent(location.hash.slice(1)))) pick(decodeURIComponent(location.hash.slice(1)), true);
@@ -399,7 +463,7 @@ for (const k of ['lived','visited','surfed']) {
 }
 
 // ---------- cards ----------
-const card = $('#card'), safePad = () => innerWidth <= 700 ? {top:120, bottom:innerHeight * .55, left:30, right:30} : {top:80, bottom:80, left:360, right:380};
+const card = $('#card'), safePad = () => innerWidth <= 700 ? {top:150, bottom:innerHeight * .55, left:30, right:30} : {top:80, bottom:80, left:360, right:380};
 function bboxOf(coords) { const b = new maplibregl.LngLatBounds(); coords.forEach(c => b.extend(c)); return b; }
 const flat = g => { const o = []; (function w(c) { typeof c[0] === 'number' ? o.push(c) : c.forEach(w); })(g.coordinates); return o; };
 function pick(id, fly = false) {
@@ -409,7 +473,7 @@ function pick(id, fly = false) {
   const b = badge(p), near = places.filter(o => o.country === p.country && o.id !== id && badge(o)).sort((a, c) => Math.hypot(a.coordinates[0] - p.coordinates[0], a.coordinates[1] - p.coordinates[1]) - Math.hypot(c.coordinates[0] - p.coordinates[0], c.coordinates[1] - p.coordinates[1])).slice(0, 6);
   const precision = {city:'City-level pin', place:'Named place', area:'Area · hatched region is the footprint', break:'Named surf break', approximate:'Approximate location'};
   card.style.setProperty('--tint', CAT[b].color);
-  card.innerHTML = `<button class="x" aria-label="Close">×</button><div class="stamp">${icon[b](40)}</div><h2></h2><p class="where"></p>
+  card.innerHTML = `<span class="grab"></span><button class="x" aria-label="Close">×</button><div class="stamp">${icon[b](40)}</div><h2></h2><p class="where"></p>
     <div class="chips">${priority.filter(k => p.categories.includes(k)).map(k => `<span class="chip" style="--c:${CAT[k].color}">${icon[k](14)} ${CAT[k].label}</span>`).join('')}</div>
     <p>${precision[p.precision]}</p>${p.note ? '<p class="note"></p>' : ''}`;
   card.querySelector('h2').textContent = p.name; card.querySelector('.where').textContent = [p.area, p.country].filter(Boolean).join(', ');
@@ -421,21 +485,38 @@ function pick(id, fly = false) {
   if (fly) { const a = areaById.get(id); if (a && b !== 'surfed') map.fitBounds(bboxOf(flat(a.geometry)), {padding:safePad(), maxZoom:12, duration:1600}); else map.flyTo({center:p.coordinates, zoom:p.precision === 'break' ? 12 : 9, duration:1600, padding:safePad()}); }
   layout();
 }
-function countryCard(country) {
-  const ps = places.filter(p => p.country === country && badge(p)); if (!ps.length) return;
-  selected = ''; card.style.setProperty('--tint', '#f39a2b');
-  const tally = priority.map(k => [k, ps.filter(p => badge(p) === k).length]).filter(([, n]) => n);
-  card.innerHTML = `<button class="x" aria-label="Close">×</button><h2></h2><div class="chips">${tally.map(([k, n]) => `<span class="chip" style="--c:${CAT[k].color}">${icon[k](14)} ${n} ${CAT[k].label.toLowerCase()}</span>`).join('')}</div><div class="plist"></div>`;
-  card.querySelector('h2').textContent = country;
+function listCard(title, tint, chips, ps, maxZoom, duration) {
+  selected = ''; card.style.setProperty('--tint', tint);
+  card.innerHTML = `<span class="grab"></span><button class="x" aria-label="Close">×</button><h2></h2><div class="chips">${chips}</div><div class="plist"></div>`;
+  card.querySelector('h2').textContent = title;
   for (const p of ps) { const btn = el('button', {}, `${icon[badge(p)](13)} `); btn.append(p.name); btn.onclick = () => pick(p.id, true); card.querySelector('.plist').append(btn); }
   card.querySelector('.x').onclick = () => pick(''); card.hidden = false;
-  map.fitBounds(bboxOf(ps.map(p => p.coordinates)), {padding:safePad(), maxZoom:6.5, duration:1400});
+  map.fitBounds(bboxOf(ps.map(p => p.coordinates)), {padding:safePad(), maxZoom, duration});
 }
+function groupCard(g) {
+  const ps = g.places.map(id => byId.get(id)).filter(badge); if (!ps.length) return;
+  listCard(g.title, CAT.surfed.color, `<span class="chip" style="--c:${CAT.surfed.color}">${icon.surfed(14)} ${ps.length} spots</span>`, ps, 9, 1200);
+}
+function countryCard(country) {
+  const ps = places.filter(p => p.country === country && badge(p)); if (!ps.length) return;
+  const tally = priority.map(k => [k, ps.filter(p => badge(p) === k).length]).filter(([, n]) => n);
+  listCard(country, '#f39a2b', tally.map(([k, n]) => `<span class="chip" style="--c:${CAT[k].color}">${icon[k](14)} ${n} ${CAT[k].label.toLowerCase()}</span>`).join(''), ps, 6.5, 1400);
+}
+
+// on a phone the card is a bottom sheet: drag it down from the top edge to close
+let sheetY = null;
+card.addEventListener('touchstart', e => { sheetY = innerWidth <= 700 && card.scrollTop <= 0 ? e.touches[0].clientY : null; }, {passive:true});
+card.addEventListener('touchmove', e => { if (sheetY == null) return; const dy = e.touches[0].clientY - sheetY; if (dy > 0) { card.style.transition = 'none'; card.style.transform = `translateY(${dy}px)`; e.preventDefault(); } }, {passive:false});
+card.addEventListener('touchend', e => {
+  if (sheetY == null) return; const dy = e.changedTouches[0].clientY - sheetY; sheetY = null; card.style.transition = card.style.transform = '';
+  if (dy > 80) pick('');
+});
 
 // ---------- interaction ----------
 const tip = $('#tip');
 ov.addEventListener('click', e => {
   const t = e.target.closest('[data-id],[data-group]'); if (!t) return;
+  if (t.dataset.list) return groupCard(groupById.get(t.dataset.group));
   if (t.dataset.group) return map.fitBounds(bboxOf(groupById.get(t.dataset.group).places.map(id => byId.get(id).coordinates)), {padding:safePad(), maxZoom:11, duration:1200});
   if (t.classList.contains('home') && t.dataset.multi) return map.fitBounds(bboxOf(journey.filter(id => homeOf.get(id) === t.dataset.id).map(id => byId.get(id).coordinates)), {padding:{top:120, bottom:120, left:120, right:120}, maxZoom:12, duration:1000});
   const m = t.classList.contains('pin') && clusters.get(t.dataset.id);
@@ -456,9 +537,10 @@ ov.addEventListener('wheel', e => {
 }, {passive:false});
 ov.addEventListener('mouseleave', () => tip.style.opacity = 0, true);
 // a double-click zooms in, so wait briefly before treating a click as a selection
-let clickTimer;
+// touch double-taps zoom without a dblclick event, so a second click soon after the first also cancels
+let clickTimer, lastClick = 0;
 map.on('dblclick', () => clearTimeout(clickTimer));
-map.on('click', e => { clearTimeout(clickTimer); clickTimer = setTimeout(() => selectAt(e), 260); });
+map.on('click', e => { clearTimeout(clickTimer); const now = performance.now(), second = now - lastClick < 500; lastClick = second ? 0 : now; if (second || e.originalEvent.target.closest?.('#ov [data-id],#ov [data-group]')) return; clickTimer = setTimeout(() => selectAt(e), coarse ? 320 : 260); });
 function selectAt(e) {
   const f = map.queryRenderedFeatures(e.point, {layers:['area-fill','country-paint']});
   const area = f.find(x => x.layer.id === 'area-fill'), c = f.find(x => x.layer.id === 'country-paint');

@@ -18,3 +18,11 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.greguezono.ai-output
 ```
 
 Logs: `~/Library/Logs/ai-output-refresh.log`.
+
+## Profile cards
+
+`scripts/profile_card.py` writes the chart cards for the [GitHub profile README](https://github.com/greguezono) from the cached data, with no network calls: `ai-output-{wide,compact}-{dark,light}.svg`. The wide 880×400 card is for desktop; the compact 600×600 card is for phones. Run it manually after a refresh, then commit the profile repo:
+
+```sh
+python3 scripts/profile_card.py --out ../greguezono/assets   # default --out
+```

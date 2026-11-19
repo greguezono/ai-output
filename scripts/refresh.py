@@ -99,7 +99,7 @@ def summarize(prs, month_count):
     }
 
 
-def build(series_end):
+def report_data(series_end):
     try:
         raw = RAW.read_text()
     except FileNotFoundError as exc:
@@ -148,9 +148,14 @@ def build(series_end):
         "phases": phases,
         "multiplier": multiplier,
     }
+    return data
+
+
+def build(series_end):
+    data = report_data(series_end)
     html = (ROOT / "template.html").read_text().replace("/*__DATA__*/null", json.dumps(data))
     (ROOT / "index.html").write_text(html)
-    print(json.dumps({"seriesEnd": series_end, "totalPrs": len(prs), "multiplier": multiplier}))
+    print(json.dumps({"seriesEnd": series_end, "totalPrs": data["totalPrs"], "multiplier": data["multiplier"]}))
 
 
 def publish(series_end):
